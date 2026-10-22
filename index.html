@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Pintar Sirah Tahun 4 - Panduan Ulang Kaji & Kuiz Silibus JAIS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .emerald-gradient {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+        }
+        /* Custom scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col text-gray-800">
+
+    <header class="emerald-gradient text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="bg-white/10 p-3 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <i class="fas fa-book-quran text-2xl text-emerald-200"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">E-Pintar Sirah Tahun 4</h1>
+                    <p class="text-xs sm:text-sm text-emerald-100 font-medium">Panduan Ulang Kaji & Kuiz Silibus JAIS</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 space-x-reverse bg-white/10 px-3.5 py-2 rounded-xl border border-white/15 text-xs text-emerald-100 shadow-sm">
+                <i class="fas fa-graduation-cap text-emerald-300 text-base"></i>
+                <span class="font-bold tracking-wide">online.education1.my</span>
+            </div>
+        </div>
+
+        <!-- Navigasi Tab -->
+        <div class="bg-emerald-900/40 border-t border-emerald-600/30">
+            <div class="max-w-5xl mx-auto px-4 flex justify-center sm:justify-start space-x-2 space-x-reverse py-2 overflow-x-auto">
+                <button onclick="switchTab('nota')" id="tab-nota" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 bg-white text-emerald-800 shadow-sm flex items-center space-x-2 space-x-reverse">
+                    <i class="fas fa-book-open text-emerald-600"></i>
+                    <span>Nota Terperinci</span>
+                </button>
+                <button onclick="switchTab('kad')" id="tab-kad" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 text-emerald-100 hover:bg-emerald-800/60 flex items-center space-x-2 space-x-reverse">
+                    <i class="fas fa-clone text-emerald-300"></i>
+                    <span>Kad Imbasan</span>
+                </button>
+                <button onclick="switchTab('kuiz')" id="tab-kuiz" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 text-emerald-100 hover:bg-emerald-800/60 flex items-center space-x-2 space-x-reverse">
+                    <i class="fas fa-clipboard-question text-emerald-300"></i>
+                    <span>Ujian Kuiz</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-5xl w-full mx-auto p-4 sm:p-6">
+
+        <!-- ================= TAB 1: NOTA TERPERINCI ================= -->
+        <section id="content-nota" class="tab-content space-y-6">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-emerald-100">
+                <div class="text-center max-w-2xl mx-auto mb-6">
+                    <h2 class="text-2xl font-extrabold text-emerald-900 mb-2">Nota Poket & Kronologi Sirah</h2>
+                    <p class="text-sm text-gray-600">Nota ringkas tersusun berpandukan silibus rasmi SRA/KAFA JAIS Tahun 4.</p>
+                </div>
+
+                <!-- Accordion Container Nota (7 Pelajaran Utama) -->
+                <div id="accordion-container" class="space-y-4">
+                    <!-- Dinamik nota 7 pelajaran dimasukkan melalui JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 2: KAD IMBASAN ================= -->
+        <section id="content-kad" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-emerald-100 max-w-2xl mx-auto">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-extrabold text-emerald-900 mb-2">Kad Imbasan Interaktif (70 Soalan)</h2>
+                    <p class="text-sm text-gray-600">Uji ingatan anda dengan 10 kad imbasan khas bagi setiap pelajaran. Tekan kad untuk melihat jawapan!</p>
+                </div>
+
+                <!-- Pilihan Pelajaran Kad Imbasan -->
+                <div class="mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                    <label for="flashcard-pelajaran" class="font-semibold text-emerald-900 text-sm">Pilih Pelajaran:</label>
+                    <select id="flashcard-pelajaran" onchange="changeFlashcardLesson(this.value)" class="w-full sm:w-auto bg-white border border-emerald-300 text-gray-800 text-sm rounded-lg p-2.5 focus:ring-emerald-500 focus:border-emerald-500 font-medium">
+                        <option value="1">Pelajaran 1: Pelantikan Nabi SAW sebagai Rasul (10 Kad)</option>
+                        <option value="2">Pelajaran 2: Hijrah ke Habsyah dan Taif (10 Kad)</option>
+                        <option value="3">Pelajaran 3: Isra' dan Mi'raj (10 Kad)</option>
+                        <option value="4">Pelajaran 4: Peristiwa Hijrah ke Yathrib (10 Kad)</option>
+                        <option value="5">Pelajaran 5: Asas Negara Islam 1 - Pembinaan Masjid (10 Kad)</option>
+                        <option value="6">Pelajaran 6: Asas Negara Islam 2 - Persaudaraan & Perpaduan Ummah (10 Kad)</option>
+                        <option value="7">Pelajaran 7: Asas Negara Islam 3 - Sahifah Madinah (10 Kad)</option>
+                    </select>
+                </div>
+
+                <!-- Paparan Flashcard -->
+                <div class="flex flex-col items-center">
+                    <div class="w-full mb-4 flex justify-between items-center text-xs font-bold text-emerald-700 bg-emerald-100/60 px-4 py-2 rounded-lg">
+                        <span id="flashcard-progress">Kad 1 daripada 10</span>
+                        <span>Tekan Kad untuk Jawapan</span>
+                    </div>
+
+                    <!-- Kad Utama -->
+                    <div id="flashcard-box" onclick="flipCard()" class="w-full h-64 sm:h-72 bg-gradient-to-br from-emerald-800 to-emerald-950 text-white rounded-2xl p-6 shadow-md flex flex-col justify-between cursor-pointer transform transition-transform duration-300 hover:scale-[1.01] relative overflow-hidden">
+                        <div class="absolute top-3 right-3 text-emerald-300/30 text-6xl font-black pointer-events-none">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="flex justify-between items-center z-10">
+                            <span id="flashcard-badge" class="bg-emerald-600/60 text-emerald-100 text-xs px-3 py-1 rounded-full font-medium border border-emerald-500/30">Soalan</span>
+                            <span class="text-xs text-emerald-300 font-semibold"><i class="fas fa-sync-alt mr-1"></i> Klik untuk pusing</span>
+                        </div>
+                        <div class="my-auto text-center z-10 px-4">
+                            <h3 id="flashcard-text" class="text-lg sm:text-xl font-bold leading-relaxed"></h3>
+                        </div>
+                        <div class="text-center z-10 text-xs text-emerald-200/80">
+                            E-Pintar Sirah Tahun 4 SRA/KAFA
+                        </div>
+                    </div>
+
+                    <!-- Butang Navigasi Kad Imbasan (Tanpa anak panah) -->
+                    <div class="flex items-center justify-between w-full mt-6 gap-3">
+                        <button onclick="prevCard()" id="btn-prev-card" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2.5 px-4 rounded-xl text-sm transition-all flex items-center justify-center space-x-2 space-x-reverse border border-gray-300 disabled:opacity-50">
+                            <span>Kad Sebelumnya</span>
+                        </button>
+                        <button onclick="resetCards()" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-800 font-semibold py-2.5 px-4 rounded-xl text-sm transition-all flex items-center space-x-2 space-x-reverse border border-emerald-200" title="Ulang Semula">
+                            <i class="fas fa-redo"></i>
+                            <span>Ulang Semula</span>
+                        </button>
+                        <button onclick="nextCard()" id="btn-next-card" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition-all flex items-center justify-center space-x-2 space-x-reverse shadow-sm disabled:opacity-50">
+                            <span>Kad Seterusnya</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 3: UJIAN KUIZ ================= -->
+        <section id="content-kuiz" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-emerald-100 max-w-3xl mx-auto">
+                <div class="text-center mb-6">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">Mod Pentaksiran</span>
+                    <h2 class="text-2xl font-extrabold text-emerald-900 mb-1">Kuasai Sirah Sekolah Rendah Agama (SRA / KAFA)</h2>
+                    <p class="text-xs sm:text-sm text-gray-600">Pilih tajuk pelajaran di bawah untuk memulakan kuiz interaktif</p>
+                </div>
+
+                <!-- Paparan Menu Pilihan Tajuk Kuiz Terus Terpapar (Grid Kad tanpa anak panah) -->
+                <div id="quiz-menu-container" class="space-y-4">
+                    <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100 mb-4">
+                        <span class="text-xs font-bold text-emerald-900 uppercase tracking-wider block mb-3"><i class="fas fa-list ml-1 text-emerald-600"></i> Sila Pilih Tajuk Pelajaran:</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <button onclick="startQuiz('all')" class="text-right p-3 bg-white hover:bg-emerald-100/70 border border-emerald-200 rounded-xl text-xs sm:text-sm font-bold text-emerald-900 transition-all flex items-center justify-between shadow-sm">
+                                <span class="flex items-center space-x-2 space-x-reverse truncate">
+                                    <i class="fas fa-random text-emerald-600 ml-2"></i>
+                                    <span class="truncate">Semua Tajuk Campuran (30 Soalan)</span>
+                                </span>
+                            </button>
+                            <button onclick="startQuiz('1')" class="text-right p-3 bg-white hover:bg-emerald-100/70 border border-emerald-200 rounded-xl text-xs sm:text-sm font-bold text-emerald-900 transition-all flex items-center justify-between shadow-sm">
+                                <span class="flex items-center space-x-2 space-x-reverse truncate">
+                                    <i class="fas fa-book text-emerald-600 ml-2"></i>
+                                    <span class="truncate">Pelajaran 1: Pelantikan Nabi SAW</span>
+                                </span>
+                            </button>
+                            <button onclick="startQuiz('2')" class="text-right p-3 bg-white hover:bg-emerald-100/70 border border-emerald-200 rounded-xl text-xs sm:text-sm font-bold text-emerald-900 transition-all flex items-center justify-between shadow-sm">
+                                <span class="flex items-center space-x-2 space-x-reverse truncate">
+                                    <i class="fas fa-book text-emerald-600 ml-2"></i>
+                                    <span class="truncate">Pelajaran 2: Hijrah Habsyah & Taif</span>
+                                </span>
+                            </button>
+                            <button onclick="startQuiz('3')" class="text-right p-3 bg-white hover:bg-emerald-100/70 border border-emerald-200 rounded-xl text-xs sm:text-sm font-bold text-emerald-900 transition-all flex items-center justify-between shadow-sm">
+                                <span class="flex items-center space-x-2 space-x-reverse truncate">
+                                    <i class="fas fa-book text-emerald-600 ml-2"></i>
+                                    <span class="truncate">Pelajaran 3: Isra' dan Mi'raj</span>
+                                </span>
+                            </button>
+                            <button onclick="startQuiz('4')" class="text-right p-3 bg-white hover:bg-emerald-100/70 border border-emerald-200 rounded-xl text-xs sm:text-sm font-bold text-emerald-900 transition-all flex items-center justify-between shadow-sm">
+                                <span class="flex items-center space-x-2 space-x-reverse truncate">
+                                    <i class="fas fa-book text-emerald-600 ml-2"></i>
+                                    <span class="truncate">Pelajaran 4: Peristiwa Hijrah Yathrib</span>
+                                </span>
+                            </button>
+                            <button onclick="startQuiz('5')" class="text-right p-3 bg-white hover:bg-emerald-100/70 border border-emerald-200 rounded-xl text-xs sm:text-sm font-bold text-emerald-900 transition-all flex items-center justify-between shadow-sm">
+                                <span class="flex items-center space-x-2 space-x-reverse truncate">
+                                    <i class="fas fa-book text-emerald-600 ml-2"></i>
+                                    <span class="truncate">Pelajaran 5: Asas Negara 1 (Masjid)</span>
+                                </span>
+                            </button>
+                            <button onclick="startQuiz('6')" class="text-right p-3 bg-white hover:bg-emerald-100/70 border border-emerald-200 rounded-xl text-xs sm:text-sm font-bold text-emerald-900 transition-all flex items-center justify-between shadow-sm">
+                                <span class="flex items-center space-x-2 space-x-reverse truncate">
+                                    <i class="fas fa-book text-emerald-600 ml-2"></i>
+                                    <span class="truncate">Pelajaran 6: Asas Negara 2 (Persaudaraan)</span>
+                                </span>
+                            </button>
+                            <button onclick="startQuiz('7')" class="text-right p-3 bg-white hover:bg-emerald-100/70 border border-emerald-200 rounded-xl text-xs sm:text-sm font-bold text-emerald-900 transition-all flex items-center justify-between shadow-sm">
+                                <span class="flex items-center space-x-2 space-x-reverse truncate">
+                                    <i class="fas fa-book text-emerald-600 ml-2"></i>
+                                    <span class="truncate">Pelajaran 7: Asas Negara 3 (Sahifah)</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paparan Soalan Kuiz (Tersembunyi Mula-mula) -->
+                <div id="quiz-container" class="hidden space-y-6">
+                    <div class="flex flex-wrap items-center justify-between gap-4 bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <button onclick="backToQuizMenu()" class="bg-white hover:bg-emerald-100 text-emerald-800 text-xs font-bold py-2 px-3 rounded-lg border border-emerald-300 transition-all flex items-center space-x-1 space-x-reverse shadow-sm">
+                                <span>Tukar Tajuk</span>
+                            </button>
+                            <div>
+                                <span class="text-xs text-gray-500 block font-medium" id="quiz-topic-title-label">Tajuk Terpilih</span>
+                                <span id="quiz-q-num" class="text-sm sm:text-base font-extrabold text-emerald-900">Soalan 1 daripada 30</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 space-x-reverse">
+                            <div class="bg-white px-3 py-1.5 rounded-lg border border-emerald-200 text-center">
+                                <span class="text-[10px] text-gray-500 block font-medium">Skor Semasa</span>
+                                <span id="quiz-score-display" class="text-sm font-extrabold text-emerald-700">0 Mata</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-5 sm:p-6 space-y-4 shadow-sm">
+                        <h3 id="quiz-question-text" class="text-base sm:text-lg font-bold text-gray-900 leading-relaxed"></h3>
+                        <div id="quiz-options" class="grid grid-cols-1 gap-3"></div>
+                    </div>
+
+                    <div id="quiz-explanation-box" class="hidden bg-emerald-50 border-l-4 border-emerald-600 p-4 rounded-xl space-y-2">
+                        <div class="flex items-center space-x-2 space-x-reverse text-emerald-900 font-bold text-sm">
+                            <i class="fas fa-info-circle text-emerald-600"></i>
+                            <span>Huraian Fakta Rasmi:</span>
+                        </div>
+                        <p id="quiz-explanation-text" class="text-xs sm:text-sm text-gray-700 leading-relaxed"></p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-2">
+                        <button onclick="prevQuizQuestion()" id="btn-prev-q" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2.5 px-5 rounded-xl text-sm transition-all flex items-center space-x-2 space-x-reverse disabled:opacity-50">
+                            <span>Sebelumnya</span>
+                        </button>
+                        <button onclick="nextQuizQuestion()" id="btn-next-q" class="emerald-gradient hover:opacity-95 text-white font-semibold py-2.5 px-6 rounded-xl text-sm transition-all flex items-center space-x-2 space-x-reverse shadow-sm">
+                            <span>Seterusnya</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Keputusan Akhir Kuiz -->
+                <div id="quiz-result-container" class="hidden text-center space-y-6 py-6">
+                    <div class="w-20 h-20 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto text-3xl shadow-inner">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-extrabold text-emerald-900 mb-1">Tahniah! Kuiz Selesai</h3>
+                        <p class="text-sm text-gray-600">Anda telah berjaya menjawab semua soalan kuiz silibus JAIS dengan cemerlang.</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-lg mx-auto">
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                            <span class="text-xs text-gray-500 block">Markah</span>
+                            <span id="res-score" class="text-xl font-extrabold text-emerald-900">0</span>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                            <span class="text-xs text-gray-500 block">Peratusan</span>
+                            <span id="res-percent" class="text-xl font-extrabold text-emerald-700">0%</span>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                            <span class="text-xs text-gray-500 block">Betul</span>
+                            <span id="res-correct" class="text-xl font-extrabold text-green-600">0</span>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                            <span class="text-xs text-gray-500 block">Salah</span>
+                            <span id="res-wrong" class="text-xl font-extrabold text-red-600">0</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <button onclick="startQuiz(currentSelectedTopic)" class="emerald-gradient hover:opacity-95 text-white font-bold py-3 px-6 rounded-xl shadow-md transition-all inline-flex items-center space-x-2 space-x-reverse text-sm">
+                            <i class="fas fa-redo"></i>
+                            <span>Ulang Kuiz Ini</span>
+                        </button>
+                        <button onclick="backToQuizMenu()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-xl border border-gray-300 transition-all inline-flex items-center space-x-2 space-x-reverse text-sm">
+                            <i class="fas fa-list"></i>
+                            <span>Pilih Tajuk Lain</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 py-4 mt-auto">
+        <div class="max-w-5xl mx-auto px-4 text-center text-xs text-gray-500">
+            <p>E-Pintar Sirah Tahun 4 SRA &bull; Dibangunkan khas berpandukan Silibus Jabatan Agama Islam Selangor (JAIS)</p>
+        </div>
+    </footer>
+
+    <script>
+        const notaData = [
+            {
+                pelajaran: "Pelajaran 1: Pelantikan Nabi Muhammad SAW sebagai Rasul",
+                units: [
+                    {
+                        title: "Unit 1: Peristiwa Penurunan Wahyu di Gua Hira'",
+                        penerangan: "Ketika Nabi Muhammad SAW berusia menghampiri 40 tahun, Baginda diilhamkan oleh Allah untuk beruzlah (mengasingkan diri daripada kesesatan kaum Jahiliah) di Gua Hira' yang terletak di Jabal Nur.",
+                        kronologi: [
+                            "<strong>Tarikh:</strong> Malam 17 Ramadan, kira-kira 13 tahun sebelum Hijrah (610 Masihi).",
+                            "<strong>Peristiwa:</strong> Malaikat Jibril mendatangi Nabi dan memeluk Baginda sebanyak tiga kali sambil meminta Baginda membaca.",
+                            "<strong>Jawapan Nabi:</strong> <em>\"Ma ana bi qari'\"</em> (Aku tidak tahu membaca).",
+                            "<strong>Wahyu Pertama:</strong> Surah Al-'Alaq ayat 1–5 diturunkan.",
+                            "<strong>Reaksi Nabi:</strong> Pulang dalam keadaan takut dan gemetar, lalu meminta isterinya Saidatina Khadijah binti Khuwailid menyelimutkan Baginda.",
+                            "<strong>Pertemuan Waraqah:</strong> Khadijah membawa Nabi bertemu pakciknya Waraqah bin Naufal (seorang penganut agama Nasrani) lalu mengesahkan kenabian Baginda."
+                        ]
+                    },
+                    {
+                        title: "Unit 2: Dakwah Secara Rahsia",
+                        penerangan: "Nabi Muhammad SAW memulakan dakwah secara rahsia selepas turunnya wahyu daripada Surah Al-Mudassir ayat 1 hingga 5.",
+                        kronologi: [
+                            "<strong>Tujuan:</strong> Supaya orang ramai tidak terkejut dengan sesuatu yang baru yang belum pernah mereka dengar.",
+                            "<strong>Sasaran:</strong> Ahli keluarga terdekat dan sahabat handai dalam kalangan kaum Quraisy.",
+                            "<strong>Tempoh Masa:</strong> Berlangsung selama tiga tahun.",
+                            "<strong>Pusat Gerakan:</strong> Rumah Al-Arqam bin Abi Al-Arqam.",
+                            "<strong>Pencapaian:</strong> Seramai 10 orang telah beriman pada peringkat awal ini."
+                        ]
+                    },
+                    {
+                        title: "Unit 3: Orang Yang Mula-Mula Beriman",
+                        penerangan: "Nabi Muhammad SAW menyeru ahli keluarga terdekat serta sahabat handai Baginda.",
+                        kronologi: [
+                            "<strong>Saidatina Khadijah binti Khuwailid:</strong> Wanita pertama memeluk Islam.",
+                            "<strong>Saidina Ali bin Abi Talib:</strong> Kanak-kanak cilik pertama memeluk Islam.",
+                            "<strong>Abu Bakar As-Siddiq:</strong> Sahabat karib yang aktif mengajak manusia kepada Islam.",
+                            "<strong>Zaid bin Harithah:</strong> Bekas hamba yang dijadikan anak angkat Nabi.",
+                            "<strong>Tokoh Lain:</strong> Uthman bin Affan, Zubair bin Awwam, Abdul Rahman bin Auf, Talhah bin Ubaidillah, dan Saad bin Abi Waqas."
+                        ]
+                    },
+                    {
+                        title: "Unit 4: Dakwah Secara Terbuka",
+                        penerangan: "Selepas tiga tahun berdakwah secara rahsia, Allah menurunkan perintah menerusi Surah Al-Hijr ayat 94.",
+                        kronologi: [
+                            "<strong>Perintah Allah:</strong> Menyampaikan dakwah secara terus terang dan terbuka kepada masyarakat.",
+                            "<strong>Lokasi Seruan:</strong> Nabi mendaki Bukit Safa dan menyeru penduduk Makkah beramai-ramai.",
+                            "<strong>Penentangan Awal:</strong> Ditegah serta-merta oleh bapa saudaranya Abu Lahab, Abu Jahal, dan pemimpin Quraisy."
+                        ]
+                    },
+                    {
+                        title: "Unit 5: Penentangan Orang Kafir Terhadap Rasulullah SAW",
+                        penerangan: "Apabila penganut Islam semakin bertambah, kaum kafir Quraisy mula melancarkan penentangan dan penyeksaan kejam.",
+                        kronologi: [
+                            "<strong>Gangguan Fizikal:</strong> Abu Jahal mengganggu Nabi solat di Masjidil Haram manakala Abu Lahab meletakkan najis di pintu rumah Nabi.",
+                            "<strong>Nasib Bilal bin Rabah:</strong> Dijemur di padang pasir terik dan ditindih batu besar di dada.",
+                            "<strong>Keluarga Yasir:</strong> Ammar bin Yasir dan ibu bapanya diseksa hebat di bawah terik matahari hingga syahid."
+                        ]
+                    },
+                    {
+                        title: "Unit 6: Iktibar Perjalanan Dakwah Nabi SAW",
+                        penerangan: "Pengajaran penting yang boleh diamalkan oleh umat Islam dalam kehidupan seharian.",
+                        kronologi: [
+                            "Sentiasa taat kepada perintah Allah SWT dan menjauhi kemungkaran.",
+                            "Pemimpin wajib menjalankan tanggungjawab dakwah kepada orang di bawah jagaan.",
+                            "Berakhlak mulia mengikut teladan Rasulullah SAW dan bersabar menghadapi ujian."
+                        ]
+                    }
+                ]
+            },
+            {
+                pelajaran: "Pelajaran 2: Hijrah ke Habsyah dan Taif",
+                units: [
+                    {
+                        title: "Unit 1: Peristiwa Hijrah ke Habsyah & Layanan Raja An-Najashi",
+                        penerangan: "Nabi mengarahkan sahabat berhijrah ke negeri Habsyah akibat tekanan dan penyeksaan yang berat di Makkah.",
+                        kronologi: [
+                            "<strong>Hijrah Kali Pertama:</strong> 12 lelaki dan 4 wanita di bawah pimpinan Uthman bin Affan.",
+                            "<strong>Hijrah Kali Kedua:</strong> 83 lelaki dan 18 wanita dipimpin oleh Jaafar bin Abi Talib pada tahun ke-7 kenabian.",
+                            "<strong>Tindakan Quraisy:</strong> Mengutus wakil membawa hadiah merasuah Raja Habsyah agar memulangkan orang Islam.",
+                            "<strong>Sikap Raja An-Najashi:</strong> Menolak hadiah tersebut selepas mendengar hujah bernas Jaafar bin Abi Talib dan melayan umat Islam dengan sangat adil selama 13 tahun."
+                        ]
+                    },
+                    {
+                        title: "Unit 2: Peristiwa Hijrah ke Taif & Layanan Penduduk Taif",
+                        penerangan: "Berlaku pada tahun ke-10 kenabian sejurus kewafatan Khadijah dan Abu Talib.",
+                        kronologi: [
+                            "<strong>Tujuan Perjalanan:</strong> Mengajak penduduk Bani Thaqif di Taif memeluk Islam dan memohon perlindungan.",
+                            "<strong>Layanan Kasar:</strong> Penduduk Taif menghalau dan menyuruh kanak-kanak melontar batu sehingga kedua-dua kaki Baginda berdarah.",
+                            "<strong>Tempat Berlindung:</strong> Nabi berlindung di sebuah kebun anggur dan berdoa dengan penuh hiba.",
+                            "<strong>Perlindungan Semula:</strong> Sekembali ke Makkah, Baginda dilindungi oleh Mut'im bin Adi."
+                        ]
+                    }
+                ]
+            },
+            {
+                pelajaran: "Pelajaran 3: Isra' dan Mi'raj",
+                units: [
+                    {
+                        title: "Unit 1: Pengertian Isra' dan Mi'raj",
+                        penerangan: "Mukjizat agung yang dikurniakan kepada Nabi Muhammad SAW.",
+                        kronologi: [
+                            "<strong>Isra':</strong> Perjalanan Nabi pada waktu malam dari Masjidil Haram (Makkah) ke Masjidil Aqsa (Palestin).",
+                            "<strong>Mi'raj:</strong> Perjalanan naik ke alam tinggi melintasi langit dari Masjidil Aqsa menuju ke Sidratul Muntaha."
+                        ]
+                    },
+                    {
+                        title: "Unit 2: Sebab Berlaku Isra' dan Mi'raj",
+                        penerangan: "Peristiwa berlaku pada 27 Rejab tahun ke-11 kenabian.",
+                        kronologi: [
+                            "Berlaku sejurus selepas 'Amul Huzni (Tahun Duka Cita) akibat kewafatan Khadijah dan Abu Talib.",
+                            "Ujian penolakan dakwah serta lontaran batu di Taif.",
+                            "Allah mengurniakan mukjizat ini untuk menghiburkan hati Rasulullah SAW serta mensyariatkan solat lima waktu."
+                        ]
+                    },
+                    {
+                        title: "Unit 3: Peristiwa Semasa Isra'",
+                        penerangan: "Perjalanan malam menaiki Buraq ditemani Malaikat Jibril.",
+                        kronologi: [
+                            "Dada Nabi dibelah dan dibersihkan serta diisi hikmah sebelum perjalanan.",
+                            "Berhenti solat di tempat bersejarah: Madian, Tursina, dan Bait Bethlehem (tempat lahir Nabi Isa AS).",
+                            "Menyaksikan pelbagai gambaran balasan amalan manusia (termasuk kisah Masyitah)."
+                        ]
+                    },
+                    {
+                        title: "Unit 4: Nabi Dimi'rajkan ke Sidratul Muntaha",
+                        penerangan: "Perjalanan menembusi tujuh lapis langit.",
+                        kronologi: [
+                            "Bertemu para nabi terdahulu di setiap tingkat langit (Nabi Adam, Isa, Yusuf, Idris, Harun, Musa, dan Ibrahim AS).",
+                            "Menerima perintah asal solat 50 waktu sehari semalam.",
+                            "Atas nasihat Nabi Musa AS, Baginda merayu diringankan sehingga menjadi 5 waktu sehari semalam."
+                        ]
+                    }
+                ]
+            },
+            {
+                pelajaran: "Pelajaran 4: Peristiwa Hijrah ke Yathrib",
+                units: [
+                    {
+                        title: "Unit 1: Pengislaman Penduduk Yathrib",
+                        penerangan: "Asas penghijrahan bermula daripada Perjanjian Aqabah pertama, kedua, dan ketiga.",
+                        kronologi: [
+                            "Penduduk Yathrib (Aus dan Khazraj) berikrar taat setia melindungi Nabi.",
+                            "Kaum Quraisy merancang membunuh Nabi apabila mengetahui Yathrib menjadi tempat perlindungan selamat."
+                        ]
+                    },
+                    {
+                        title: "Unit 2: Penghijrahan Rasulullah SAW",
+                        penerangan: "Detik bersejarah keluar dari Kota Makkah.",
+                        kronologi: [
+                            "<strong>Penyamaran:</strong> Saidina Ali bin Abi Talib tidur di katil Nabi mengaburi pemuda Quraisy.",
+                            "<strong>Tarikh Bertolak:</strong> 2 Rabiulawal (20 September 622 Masihi) bersama Abu Bakar As-Siddiq.",
+                            "<strong>Gua Thur:</strong> Bersembunyi selama 3 hari dipandu oleh Abdullah bin Uraiqit.",
+                            "<strong>Masjid Quba':</strong> Singgah membina masjid pertama dalam sejarah Islam."
+                        ]
+                    },
+                    {
+                        title: "Unit 3: Sambutan Penduduk Yathrib",
+                        penerangan: "Ketibaan Rasulullah SAW di kota baru.",
+                        kronologi: [
+                            "Penduduk Yathrib keluar beramai-ramai menyambut Baginda dengan nasyid kegembiraan.",
+                            "Nama asal Yathrib ditukar rasmi kepada <strong>Madinah Al-Munawwarah</strong> (Kota yang Bercahaya)."
+                        ]
+                    },
+                    {
+                        title: "Unit 4: Pembentukan Negara Islam Madinah",
+                        penerangan: "Pengisytiharan negara Islam berdaulat pertama.",
+                        kronologi: [
+                            "Menyatukan penduduk Arab (Aus & Khazraj) serta kabilah Yahudi.",
+                            "Memperkukuh institusi masjid, persaudaraan ummah, dan perlembagaan bertulis."
+                        ]
+                    }
+                ]
+            },
+            {
+                pelajaran: "Pelajaran 5: Asas Negara Islam 1 - Pembinaan Masjid",
+                units: [
+                    {
+                        title: "Unit 1: Pembinaan Masjid",
+                        penerangan: "Langkah awal Nabi Muhammad SAW membina peradaban Islam di Madinah dengan mendirikan institusi utama.",
+                        kronologi: [
+                            "<strong>Pembinaan Masjid Quba':</strong> Masjid pertama yang dibina atas dasar taqwa sebaik tiba di pinggir Madinah.",
+                            "<strong>Pembinaan Masjid Nabawi:</strong> Berfungsi sebagai pusat ibadat, tempat bermesyuarat, pentadbiran, dan pusat komuniti umat Islam.",
+                            "<strong>Peranan Mualazin:</strong> Bilal bin Rabah dipilih melaungkan azan pertama kerana suaranya yang merdu."
+                        ]
+                    },
+                    {
+                        title: "Unit 2: Pemantapan Akidah",
+                        penerangan: "Rasulullah SAW menegakkan asas keimanan masyarakat Madinah.",
+                        kronologi: [
+                            "Membersihkan masyarakat daripada sisa syirik, amalan khurafat, dan sembahan berhala.",
+                            "Meneguhkan keyakinan kepada Allah Yang Maha Esa."
+                        ]
+                    },
+                    {
+                        title: "Unit 3: Ibadah",
+                        penerangan: "Mensyariatkan amal ibadah harian kepada umat Islam.",
+                        kronologi: [
+                            "Mensyariatkan solat berjemaah lima waktu.",
+                            "Menetapkan kewajipan zakat dan puasa."
+                        ]
+                    },
+                    {
+                        title: "Unit 4: Akhlak",
+                        penerangan: "Membina sahsiah peribadi mulia berpandukan akhlak Rasulullah SAW.",
+                        kronologi: [
+                            "Memupuk sifat jujur, amanah, dan kasih sayang sesama manusia.",
+                            "Menjauhi perbuatan keji dan permusuhan jahiliah."
+                        ]
+                    },
+                    {
+                        title: "Unit 5: Pendidikan",
+                        penerangan: "Mengutamakan ilmu pengetahuan dalam kalangan masyarakat.",
+                        kronologi: [
+                            "Tawanan perang Badar dibebaskan dengan syarat mengajar 10 kanak-kanak Madinah menulis dan membaca.",
+                            "Menjadikan masjid sebagai pusat majlis ilmu."
+                        ]
+                    },
+                    {
+                        title: "Unit 6: Ekonomi",
+                        penerangan: "Membina sistem kewangan dan perniagaan yang halal.",
+                        kronologi: [
+                            "Melarang amalan riba dan penindasan dalam perniagaan.",
+                            "Menggalakkan aktiviti perniagaan beretika Islam."
+                        ]
+                    }
+                ]
+            },
+            {
+                pelajaran: "Pelajaran 6: Asas Negara Islam 2 - Persaudaraan & Perpaduan Ummah",
+                units: [
+                    {
+                        title: "Unit 1: Asas Persaudaraan dan Perpaduan Ummah",
+                        penerangan: "Penyatuan ummah yang dibina kukuh di Madinah atas landasan akidah dan iman yang bersih.",
+                        kronologi: [
+                            "<strong>Golongan Muhajirin:</strong> Umat Islam Makkah yang berhijrah meninggalkan harta benda dan keluarga demi mempertahankan akidah.",
+                            "<strong>Golongan Ansar:</strong> Penduduk Madinah (suku Aus dan Khazraj) yang menyambut serta menolong saudara mereka dari Makkah dengan penuh ihsan."
+                        ]
+                    },
+                    {
+                        title: "Unit 2: Cara Mewujudkan Persaudaraan dan Perpaduan Ummah",
+                        penerangan: "Langkah konkrit yang dilaksanakan Rasulullah SAW untuk merapatkan hubungan antara umat.",
+                        kronologi: [
+                            "<strong>Ikatan Persaudaraan Rasmi:</strong> Nabi mempersaudarakan individu Muhajirin dan Ansar (Contoh: Abdul Rahman bin Auf dipersaudarakan dengan Saad bin Ar-Rabi').",
+                            "<strong>Peranan Masjid:</strong> Tempat berkumpul solat berjemaah lima waktu tanpa perbezaan kedudukan.",
+                            "<strong>Semangat Bantuan:</strong> Sifat tolong-menolong, bertolak ansur, dan kasih sayang kerana Allah SWT."
+                        ]
+                    }
+                ]
+            },
+            {
+                pelajaran: "Pelajaran 7: Asas Negara Islam 3 - Sahifah Madinah",
+                units: [
+                    {
+                        title: "Unit 1: Isi Kandungan Sahifah Madinah",
+                        penerangan: "Garisan panduan pentadbiran negara Islam berdaulat yang adil kepada semua pihak.",
+                        kronologi: [
+                            "<strong>Ketua Negara:</strong> Mengiktiraf Nabi Muhammad SAW sebagai pemimpin tertinggi dan rujukan utama penyelesaian masalah.",
+                            "<strong>Hak Keselamatan:</strong> Menjamin keselamatan jiwa dan harta benda seluruh penduduk Madinah termasuk bukan Islam.",
+                            "<strong>Kebebasan Beragama:</strong> Membenarkan kaum Yahudi mengamalkan ajaran agama masing-masing selagi patuh kepada syarat perjanjian."
+                        ]
+                    },
+                    {
+                        title: "Unit 2: Kesan-kesan Pembentukan Sahifah Madinah",
+                        penerangan: "Impak besar piagam ini terhadap kestabilan politik, sosial, dan pengajaran kepada negara moden.",
+                        kronologi: [
+                            "<strong>Kestabilan Politik:</strong> Berjaya menghapuskan permusuhan lama antara suku kaum Aus dan Khazraj.",
+                            "<strong>Kepatuhan Undang-undang:</strong> Wajib taat kepada pemimpin dan undang-undang negara demi menjamin keamanan sejagat."
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        function renderNota() {
+            const container = document.getElementById('accordion-container');
+            container.innerHTML = '';
+
+            notaData.forEach((pel, pelIndex) => {
+                const lessonId = `lesson-${pelIndex}`;
+                const card = document.createElement('div');
+                card.className = "bg-white border border-emerald-100 rounded-xl shadow-sm overflow-hidden transition-all";
+
+                // Generate sub-units list inside the lesson accordion
+                let unitsHtml = '';
+                pel.units.forEach((unit, unitIndex) => {
+                    const unitId = `unit-${pelIndex}-${unitIndex}`;
+                    let kronologiHtml = '';
+                    if (unit.kronologi && unit.kronologi.length > 0) {
+                        kronologiHtml = `
+                            <div class="mt-3 bg-emerald-50/70 p-3.5 rounded-xl border border-emerald-100">
+                                <span class="font-bold text-emerald-900 block mb-2 text-xs uppercase tracking-wider"><i class="fas fa-list-ul ml-1 text-emerald-600"></i> Kronologi & Fakta Penting:</span>
+                                <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-gray-700">
+                                    ${unit.kronologi.map(k => `<li>${k}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `;
+                    }
+
+                    unitsHtml += `
+                        <div class="border border-emerald-100 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button onclick="toggleSubAccordion('${unitId}')" class="w-full px-4 py-3 text-right font-bold text-emerald-900 bg-emerald-50/40 hover:bg-emerald-50 flex justify-between items-center transition-colors">
+                                <span class="text-xs sm:text-sm font-bold text-emerald-900">${unit.title}</span>
+                                <span class="text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-1 rounded-lg">Baca Nota</span>
+                            </button>
+                            <div id="${unitId}" class="hidden p-4 space-y-3 text-sm text-gray-700 border-t border-emerald-100 bg-white leading-relaxed">
+                                <p class="text-justify leading-relaxed">${unit.penerangan}</p>
+                                ${kronologiHtml}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <button onclick="toggleAccordion('${lessonId}')" class="w-full px-5 py-4 text-left font-extrabold text-emerald-900 bg-emerald-50/50 hover:bg-emerald-50 flex justify-between items-center transition-colors">
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <span class="bg-emerald-700 text-white text-xs px-3 py-1.5 rounded-lg font-extrabold shadow-sm">${pel.pelajaran.split(':')[0]}</span>
+                            <span class="text-sm sm:text-base font-extrabold text-emerald-900">${pel.pelajaran.split(':')[1]}</span>
+                        </div>
+                        <span id="label-${lessonId}" class="text-xs font-semibold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">Buka Pelajaran</span>
+                    </button>
+                    <div id="${lessonId}" class="hidden p-4 sm:p-5 space-y-3 border-t border-emerald-100 bg-gray-50/50">
+                        <div class="space-y-3">
+                            ${unitsHtml}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            const label = document.getElementById(`label-${id}`);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                label.innerText = 'Tutup Pelajaran';
+                label.classList.remove('bg-emerald-100', 'text-emerald-800');
+                label.classList.add('bg-emerald-700', 'text-white');
+            } else {
+                el.classList.add('hidden');
+                label.innerText = 'Buka Pelajaran';
+                label.classList.remove('bg-emerald-700', 'text-white');
+                label.classList.add('bg-emerald-100', 'text-emerald-800');
+            }
+        }
+
+        function toggleSubAccordion(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('bg-white', 'text-emerald-800', 'shadow-sm');
+                b.classList.add('text-emerald-100', 'hover:bg-emerald-800/60');
+            });
+
+            document.getElementById(`content-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.add('bg-white', 'text-emerald-800', 'shadow-sm');
+            activeBtn.classList.remove('text-emerald-100', 'hover:bg-emerald-800/60');
+        }
+
+        const flashcardData = {
+            1: [
+                {q: "Berapakah usia Nabi Muhammad SAW ketika diilhamkan beruzlah di Gua Hira'?", a: "Menghampiri 40 tahun."},
+                {q: "Di manakah letaknya Gua Hira' tempat Nabi beruzlah?", a: "Di Jabal Nur."},
+                {q: "Bilakah tarikh tepat turunnya wahyu pertama di Gua Hira'?", a: "Malam 17 Ramadan, sekitar 13 tahun sebelum Hijrah (610 Masihi)."},
+                {q: "Apakah surah dan ayat pertama yang diturunkan kepada Nabi Muhammad SAW?", a: "Surah Al-Alaq, ayat 1 hingga 5."},
+                {q: "Siapakah nama isteri yang menyelimutkan Nabi sekembali dari Gua Hira'?", a: "Saidatina Khadijah binti Khuwailid."},
+                {q: "Siapakah pakcik Saidatina Khadijah beragama Nasrani yang ditemui Nabi untuk mengesahkan kenabian?", a: "Waraqah bin Naufal."},
+                {q: "Berapa lamakah Nabi Muhammad SAW menjalankan dakwah secara rahsia?", a: "Selama 3 tahun berturut-turut."},
+                {q: "Di manakah pusat gerakan dakwah secara rahsia diadakan?", a: "Di rumah Al-Arqam bin Abi Al-Arqam."},
+                {q: "Siapakah nama sahabat cilik yang mula-mula beriman dan tinggal bersama Nabi?", a: "Ali bin Abi Talib."},
+                {q: "Ayat manakah yang memerintahkan Nabi berdakwah secara terang dan terbuka?", a: "Surah Al-Hijr, ayat 94."}
+            ],
+            2: [
+                {q: "Berapakah jumlah bilangan umat Islam yang berhijrah ke Habsyah kali pertama?", a: "Seramai 12 orang lelaki dan 4 orang perempuan."},
+                {q: "Siapakah raja Habsyah yang melayan rombongan Islam dengan adil?", a: "Raja An-Najashi."},
+                {q: "Siapakah wakil jurucakap rombongan Islam yang menerangkan Islam di hadapan Raja Habsyah?", a: "Jaafar bin Abi Talib."},
+                {q: "Berapa lamakah umat Islam tinggal menetap di Habsyah?", a: "Selama 13 tahun."},
+                {q: "Bilakah berlakunya peristiwa Hijrah ke Taif bersama Zaid bin Harithah?", a: "Pada tahun ke-10 kenabian selepas kewafatan Khadijah dan Abu Talib."},
+                {q: "Bagaimanakah layanan penduduk Taif terhadap dakwah Nabi?", a: "Mereka menolak, menghalau dan menyuruh kanak-kanak melontar batu sehingga kaki Baginda berdarah."},
+                {q: "Siapakah yang menawarkan perlindungan kepada Nabi sekembali dari Taif?", a: "Mut'im bin Adi."},
+                {q: "Apakah nama kabilah yang ditemui Nabi di Taif?", a: "Bani Thaqif."},
+                {q: "Siapakah anak angkat Rasulullah SAW yang menyertai Baginda ke Taif?", a: "Zaid bin Harithah."},
+                {q: "Apakah iktibar penting daripada peristiwa Hijrah ke Taif?", a: "Sabar yang tinggi dalam menghadapi cabaran dakwah."}
+            ],
+            3: [
+                {q: "Apakah pengertian Isra' dari segi bahasa dan istilah?", a: "Perjalanan Nabi pada waktu malam dari Masjidil Haram ke Masjidil Aqsa."},
+                {q: "Apakah pengertian Mi'raj?", a: "Perjalanan naik ke alam tinggi dari Masjidil Aqsa ke Sidratul Muntaha."},
+                {q: "Bilakah tarikh berlakunya peristiwa Isra' dan Mi'raj?", a: "Pada malam 27 Rejab, tahun ke-11 kenabian."},
+                {q: "Apakah nama kenderaan yang dinaiki Nabi semasa Isra'?", a: "Buraq."},
+                {q: "Di manakah tempat Nabi berhenti solat yang dikaitkan dengan tempat lahir Nabi Isa AS?", a: "Bait Bethlehem."},
+                {q: "Siapakah nabi yang ditemui di langit pertama?", a: "Nabi Adam AS."},
+                {q: "Berapakah jumlah asal kewajipan solat yang diterima Nabi sebelum diringankan?", a: "50 waktu sehari semalam."},
+                {q: "Siapakah nabi yang menasihati Nabi supaya memohon diringankan waktu solat?", a: "Nabi Musa AS."},
+                {q: "Apakah nama sungai syurga yang bersifat batin di Sidratul Muntaha?", a: "Sungai Salsabil dan Sungai Kauthar."},
+                {q: "Apakah ibadat yang diwajibkan kepada umat Islam ketika peristiwa Israk dan Mikraj?", a: "Ibadat solat fardhu 5 waktu."}
+            ],
+            4: [
+                {q: "Berapakah anggaran bilangan penduduk Yathrib yang memeluk Islam pada tahun ke-13 kenabian?", a: "Seramai 73 orang lelaki dan 2 orang wanita."},
+                {q: "Siapakah orang pertama yang berhijrah ke Yathrib dari Makkah?", a: "Abu Salamah."},
+                {q: "Siapakah yang tidur di tempat tidur Nabi untuk mengaburi mata musuh?", a: "Ali bin Abi Talib."},
+                {q: "Bilakah tarikh rasmi Nabi keluar berhijrah ke Yathrib?", a: "2 Rabiulawal (20 September 622 Masihi)."},
+                {q: "Berapa lamakah Nabi dan Abu Bakar bersembunyi di Gua Thur?", a: "Selama 3 hari 3 malam."},
+                {q: "Siapakah nama penunjuk jalan kafir yang membantu hijrah Nabi ke Yathrib?", a: "Abdullah bin Uraiqit."},
+                {q: "Apakah nama tempat persinggahan pertama Nabi sebelum masuk ke Yathrib?", a: "Quba'."},
+                {q: "Apakah nama masjid pertama yang dibina dalam sejarah Islam?", a: "Masjid Quba'."},
+                {q: "Dengan nasyid apakah penduduk Yathrib menyambut ketibaan Nabi?", a: "Nasyid 'Tala'al Badru 'Alaina'."},
+                {q: "Kepada apakah nama Yathrib ditukar selepas hijrah?", a: "Madinah Al-Munawwarah (Kota yang Bercahaya)."}
+            ],
+            5: [
+                {q: "Apakah perkara pertama yang dilakukan Rasulullah SAW sebaik tiba di Madinah?", a: "Membina masjid (Masjid Quba' & Masjid Nabawi)."},
+                {q: "Di manakah letaknya tempat di dalam Masjid Nabawi yang sangat mustajab untuk berdoa?", a: "Al-Raudhah."},
+                {q: "Siapakah sahabat yang diutus ke Madinah untuk mengajar Al-Quran sebelum hijrah Nabi?", a: "Mus'ab bin Umair."},
+                {q: "Bagaimanakah cara tawanan perang Badar menebus diri mereka untuk bebas?", a: "Mengajar 10 orang kanak-kanak Islam menulis dan membaca."},
+                {q: "Siapakah yang diarah melaungkan azan pertama dalam Islam?", a: "Bilal bin Rabah."},
+                {q: "Bilakah zakat diwajibkan ke atas umat Islam?", a: "Pada tahun ke-2 Hijrah."},
+                {q: "Apakah peranan utama Masjid Nabawi pada zaman Rasulullah SAW?", a: "Tempat ibadat, pusat pentadbiran, mesyuarat dan pendidikan."},
+                {q: "Mengapakah aqidah yang benar sangat penting dalam Islam?", a: "Kerana ia adalah kunci penerimaan amalan ibadat yang lain."},
+                {q: "Apakah hukum amalan riba dalam perniagaan Islam?", a: "Haram disisi syarak."},
+                {q: "Siapakah sahabat pelopor perniagaan terkemuka di Madinah?", a: "Abdul Rahman bin Auf."}
+            ],
+            6: [
+                {q: "Apakah gelaran yang diberikan kepada orang Islam yang berhijrah dari Makkah?", a: "Golongan Muhajirin."},
+                {q: "Apakah gelaran bagi penduduk Madinah yang membantu orang Muhajirin?", a: "Golongan Ansar."},
+                {q: "Apakah asas utama yang mengeratkan persaudaraan Muhajirin dan Ansar?", a: "Ikatan akidah yang benar dan taqwa kepada Allah SWT."},
+                {q: "Siapakah yang dipersaudarakan oleh Nabi antara golongan Muhajirin dan Ansar?", a: "Abdul Rahman bin Auf dengan Saad bin Ar-Rabi'."},
+                {q: "Bagaimanakah sikap Saad bin Ar-Rabi' ketika menawarkan hartanya kepada Abdul Rahman bin Auf?", a: "Beliau sangat ikhlas membahagikan separuh hartanya."},
+                {q: "Apakah simbol perpaduan utama yang menyatukan umat Islam di Madinah?", a: "Institusi Masjid."},
+                {q: "Apakah rujukan utama umat Islam dalam menguruskan pentadbiran negara?", a: "Al-Quran dan Sunnah Rasulullah SAW."},
+                {q: "Apakah ganjaran di akhirat bagi orang yang berkasih sayang kerana Allah?", a: "Mendapat naungan arasy Allah SWT pada hari kiamat."},
+                {q: "Mengapakah golongan Muhajirin berhijrah dalam keadaan miskin?", a: "Kerana terpaksa meninggalkan harta benda di Makkah."},
+                {q: "Apakah iktibar utama daripada persaudaraan Islam?", a: "Sikap tolong-menolong dan perpaduan ummah."}
+            ],
+            7: [
+                {q: "Bilakah Sahifah Madinah (Perlembagaan Madinah) mula digubal?", a: "Pada tahun 627 Masihi (Tahun pertama Hijrah)."},
+                {q: "Berapakah jumlah fasal yang terdapat dalam Sahifah Madinah?", a: "Sebanyak 47 fasal bertulis."},
+                {q: "Siapakah ketua negara yang diiktiraf di dalam Sahifah Madinah?", a: "Nabi Muhammad SAW."},
+                {q: "Apakah tujuan utama penggubalan Sahifah Madinah?", a: "Untuk menyatukan seluruh masyarakat majmuk Madinah (Islam dan bukan Islam)."},
+                {q: "Adakah penduduk bukan Islam dibenarkan mengamal ajaran agama masing-masing dalam Sahifah Madinah?", a: "Ya, kebebasan mengamal ajaran agama dijamin."},
+                {q: "Apakah kesan positif pembentukan Sahifah Madinah terhadap politik?", a: "Mewujudkan kestabilan politik dan keamanan menyeluruh."},
+                {q: "Bagaimanakah hak keselamatan harta benda penduduk Madinah di bawah Sahifah Madinah?", a: "Terjamin selagi mereka taat kepada perjanjian."},
+                {q: "Apakah bukti bahawa Islam adalah agama yang sempurna melalui Sahifah Madinah?", a: "Islam mengatur urusan pentadbiran dan panduan hidup bernegara."},
+                {q: "Apakah larangan keras yang terkandung dalam Sahifah Madinah terhadap pengkhianat?", a: "Dilarang memberi perlindungan kepada musuh Islam."},
+                {q: "Apakah iktibar mematuhi undang-undang negara?", a: "Menjamin keharmonian dan kesejahteraan hidup bermasyarakat."}
+            ]
+        };
+
+        let currentLessonCard = 1;
+        let currentCardIndex = 0;
+        let isCardFlipped = false;
+
+        function loadFlashcard() {
+            const cards = flashcardData[currentLessonCard];
+            const card = cards[currentCardIndex];
+            document.getElementById('flashcard-text').innerText = isCardFlipped ? `Jawapan: ${card.a}` : `Soalan: ${card.q}`;
+            document.getElementById('flashcard-badge').innerText = isCardFlipped ? 'Jawapan' : 'Soalan Pelajaran';
+            document.getElementById('flashcard-progress').innerText = `Kad ${currentCardIndex + 1} daripada ${cards.length}`;
+
+            document.getElementById('btn-prev-card').disabled = currentCardIndex === 0;
+            document.getElementById('btn-next-card').disabled = currentCardIndex === cards.length - 1;
+        }
+
+        function flipCard() {
+            isCardFlipped = !isCardFlipped;
+            loadFlashcard();
+        }
+
+        function nextCard() {
+            const cards = flashcardData[currentLessonCard];
+            if (currentCardIndex < cards.length - 1) {
+                currentCardIndex++;
+                isCardFlipped = false;
+                loadFlashcard();
+            }
+        }
+
+        function prevCard() {
+            if (currentCardIndex > 0) {
+                currentCardIndex--;
+                isCardFlipped = false;
+                loadFlashcard();
+            }
+        }
+
+        function resetCards() {
+            currentCardIndex = 0;
+            isCardFlipped = false;
+            loadFlashcard();
+        }
+
+        function changeFlashcardLesson(val) {
+            currentLessonCard = val;
+            currentCardIndex = 0;
+            isCardFlipped = false;
+            loadFlashcard();
+        }
+
+        function generateQuizQuestions(lessonId) {
+            let pool = [];
+
+            const p1 = [
+                {q: "Berapakah usia Nabi Muhammad SAW ketika diilhamkan beruzlah di Gua Hira'?", opts: ["30 tahun", "40 tahun", "50 tahun", "60 tahun"], ans: 1, desc: "Baginda berusia menghampiri 40 tahun ketika beruzlah di Gua Hira'."},
+                {q: "Di manakah letaknya Gua Hira' tempat Nabi beruzlah?", opts: ["Jabal Nur", "Jabal Thur", "Bukit Safa", "Bukit Marwah"], ans: 0, desc: "Gua Hira' terletak di Jabal Nur, Makkah."},
+                {q: "Bilakah tarikh sebenar turunnya wahyu pertama di Gua Hira'?", opts: ["1 Muharam", "27 Rejab", "17 Ramadan, kira-kira 13 tahun sebelum Hijrah", "10 Zulhijjah"], ans: 2, desc: "Wahyu pertama turun pada malam 17 Ramadan, sekitar 13 tahun sebelum Hijrah (610 Masihi)."},
+                {q: "Siapakah Malaikat yang menyampaikan wahyu kepada Nabi Muhammad SAW?", opts: ["Malaikat Mikail", "Malaikat Israfil", "Malaikat Munkar", "Malaikat Jibril"], ans: 3, desc: "Malaikat Jibril AS yang menyampaikan wahyu di Gua Hira'."},
+                {q: "Apakah surah dan ayat pertama yang diturunkan kepada Nabi Muhammad SAW?", opts: ["Surah Al-Alaq, ayat 1–5", "Surah Al-Mudassir, ayat 1–5", "Surah Al-Hijr, ayat 94", "Surah Al-Fatihah, ayat 1–7"], ans: 0, desc: "Surah Al-Alaq ayat 1-5 adalah wahyu pertama."},
+                {q: "Apakah maksud bacaan 'Iqra' bismi rabbikallazi khalaq'?", opts: ["Bacalah dengan nama Tuhanmu yang menciptakan", "Bacalah demi Tuhan yang Maha Pemurah", "Bacalah dengan perantaraan قلم", "Bacalah apa yang tidak kau ketahui"], ans: 0, desc: "Maksudnya: Bacalah dengan nama Tuhanmu yang menciptakan."},
+                {q: "Bagaimanakah keadaan Nabi sekembali dari Gua Hira'?", opts: ["Gembira dan tenang", "Takut dan gemetar", "Marah dan sedih", "Tenang dan tertawa"], ans: 1, desc: "Baginda pulang dalam keadaan takut dan bergegar lalu meminta diselimutkan."},
+                {q: "Siapakah isteri yang menyelimutkan Nabi sekembali dari Gua Hira'?", opts: ["Aisyah", "Khadijah binti Khuwailid", "Hafsah", "Safiyah"], ans: 1, desc: "Saidatina Khadijah binti Khuwailid menyelimutkan dan menenangkan Baginda."},
+                {q: "Siapakah pakcik Khadijah beragama Nasrani yang ditemui Nabi untuk mengesahkan kenabian?", opts: ["Abu Lahab", "Waraqah bin Naufal", "Abu Jahal", "Abu Sufyan"], ans: 1, desc: "Waraqah bin Naufal mengesahkan Baginda didatangi malaikat pembawa wahyu."},
+                {q: "Berapa lamakah Nabi menjalankan dakwah secara rahsia?", opts: ["1 tahun", "2 tahun", "3 tahun", "10 tahun"], ans: 2, desc: "Dakwah secara rahsia berlangsung selama 3 tahun."},
+                {q: "Di manakah pusat gerakan dakwah secara rahsia diadakan?", opts: ["Rumah Al-Arqam bin Abi Al-Arqam", "Rumah Abu Bakar", "Rumah Ali", "Masjidil Haram"], ans: 0, desc: "Rumah Al-Arqam bin Abi Al-Arqam dijadikan pusat dakwah rahsia."},
+                {q: "Berapakah anggaran bilangan awal yang beriman pada peringkat dakwah rahsia?", opts: ["10 orang", "40 orang", "80 orang", "100 orang"], ans: 0, desc: "Seramai 10 orang telah beriman pada peringkat awal ini."},
+                {q: "Siapakah kanak-kanak pertama yang mula-mula memeluk Islam?", opts: ["Zaid bin Harithah", "Ali bin Abi Talib", "Bilal bin Rabah", "Uthman bin Affan"], ans: 1, desc: "Sayyidina Ali bin Abi Talib adalah kanak-kanak pertama memeluk Islam."},
+                {q: "Siapakah wanita pertama memeluk Islam dalam sejarah?", opts: ["Fatimah", "Khadijah binti Khuwailid", "Aisyah", "Sumayyah"], ans: 1, desc: "Saidatina Khadijah binti Khuwailid wanita pertama memeluk Islam."},
+                {q: "Siapakah bekas hamba yang dijadikan anak angkat Nabi dan awal memeluk Islam?", opts: ["Zaid bin Harithah", "Bilal bin Rabah", "Ammar bin Yasir", "Zubair bin Awwam"], ans: 0, desc: "Zaid bin Harithah adalah bekas hamba yang dijadikan anak angkat Nabi."},
+                {q: "Ayat manakah yang memerintahkan Nabi berdakwah secara terang dan terbuka?", opts: ["Surah Al-Hijr, ayat 94", "Surah Al-Alaq, ayat 1", "Surah Al-Mudassir, ayat 1–5", "Surah Yasin, ayat 9"], ans: 0, desc: "Surah Al-Hijr ayat 94 memerintahkan dakwah terbuka."},
+                {q: "Di manakah tempat Nabi menyeru penduduk Makkah secara terbuka buat pertama kali?", opts: ["Bukit Safa", "Gua Thur", "Padang Arafah", "Madinah"], ans: 0, desc: "Nabi mendaki Bukit Safa dan menyeru penduduk Makkah beramai-ramai."},
+                {q: "Siapakah bapa saudara Nabi yang menegah serta-merta ketika seruan di Bukit Safa?", opts: ["Abu Talib", "Abu Lahab", "Hamzah", "Abbas"], ans: 1, desc: "Abu Lahab menegah dan mencela Nabi di Bukit Safa."},
+                {q: "Apakah surah yang diturunkan Allah khusus mengenai kebinasaan Abu Lahab?", opts: ["Surah Al-Masad", "Surah Al-Kafirun", "Surah An-Nas", "Surah Al-Ikhlas"], ans: 0, desc: "Surah Al-Masad mencela Abu Lahab dan isterinya pembawa kayu bakar."},
+                {q: "Siapakah nama isteri Abu Lahab yang suka menabur fitnah terhadap Nabi?", opts: ["Ummu Jamil binti Harb", "Aisyah", "Fatimah", "Asma'"], ans: 0, desc: "Ummu Jamil binti Harb dijuluki pembawa kayu bakar (حمالة الحطب)."},
+                {q: "Siapakah tokoh kafir Quraisy yang mengganggu Nabi solat di Masjidil Haram?", opts: ["Abu Jahal", "Abu Lahab", "Abu Sufyan", "Utbah"], ans: 0, desc: "Abu Jahal cuba mengganggu dan memijak kepala Nabi."},
+                {q: "Siapakah sahabat bilal yang diseksa di padang pasir terik dan ditindih batu besar?", opts: ["Bilal bin Rabah", "Ali bin Abi Talib", "Uthman", "Zaid"], ans: 0, desc: "Bilal bin Rabah diseksa hebat oleh Umayyah bin Khalaf."},
+                {q: "Siapakah ibu kepada Ammar bin Yasir yang syahid diseksa kafir Quraisy?", opts: ["Sumayyah", "Khadijah", "Hindun", "Fatima"], ans: 0, desc: "Sumayyah syahid akibat diseksa hebat di bawah terik matahari."},
+                {q: "Siapakah bapa saudara Nabi yang sentiasa melindungi dakwah Baginda di Makkah?", opts: ["Abu Talib", "Abu Lahab", "Abbas", "Hamzah"], ans: 0, desc: "Abu Talib sentiasa mempertahankan Nabi daripada ancaman Quraisy."},
+                {q: "Mengapakah kafir Quraisy menentang dakwah Nabi Muhammad SAW?", opts: ["Takut kehilangan kuasa dan status berhala", "Nabi mengambil harta mereka", "Nabi merampas kota Makkah", "Nabi tiada keturunan bangsawan"], ans: 0, desc: "Mereka takut kedudukan ketua dan sembahan berhala terjejas."},
+                {q: "Siapakah sahabat yang membeli dan membebaskan Bilal bin Rabah daripada seksaan?", opts: ["Abu Bakar As-Siddiq", "Umar bin Al-Khattab", "Uthman bin Affan", "Ali bin Abi Talib"], ans: 0, desc: "Sayyidina Abu Bakar As-Siddiq menebus dan membebaskan Bilal."},
+                {q: "Apakah erti 'uzlah' yang dilakukan Nabi di Gua Hira'?", opts: ["Mengasingkan diri daripada kesesatan", "Berjual beli", "Berperang", "Mengembara"], ans: 0, desc: "Uzlah ialah mengasingkan diri daripada kesesatan kaum Jahiliah."},
+                {q: "Siapakah sahabat terkemuka yang memeluk Islam menerusi dakwah Abu Bakar?", opts: ["Uthman bin Affan dan Zubair bin Awwam", "Abu Jahal", "Abu Lahab", "Waraqah"], ans: 0, desc: "Abu Bakar berjaya mengislamkan ramai tokoh sahabat besar."},
+                {q: "Apakah iktibar penting daripada perjalanan dakwah awal Nabi SAW?", opts: ["Tabah dan sabar menghadapi ujian", "Putus asa", "Membalas dendam", "Lari dari Makkah"], ans: 0, desc: "Umat Islam wajib sabar dan tabah menghadapi ujian dakwah."},
+                {q: "Apakah tujuan Nabi memulakan dakwah secara rahsia pada peringkat awal?", opts: ["Supaya orang ramai tidak terkejut dengan ajaran baru", "Takut berperang", "Arahan Jibril", "Kekurangan harta"], ans: 0, desc: "Supaya masyarakat tidak terkejut dengan sesuatu yang belum pernah didengar."}
+            ];
+
+            const p2 = [
+                {q: "Berapakah jumlah bilangan umat Islam yang berhijrah ke Habsyah kali pertama?", opts: ["16 orang (12 lelaki & 4 wanita)", "83 orang", "114 orang", "313 orang"], ans: 0, desc: "Seramai 12 lelaki dan 4 wanita berhijrah pada kali pertama di bawah pimpinan Uthman bin Affan."},
+                {q: "Siapakah ketua rombongan hijrah ke Habsyah kali pertama?", opts: ["Uthman bin Affan", "Jaafar bin Abi Talib", "Abu Bakar", "Ali"], ans: 0, desc: "Uthman bin Affan memimpin rombongan hijrah pertama."},
+                {q: "Berapakah jumlah rombongan Islam pada hijrah ke Habsyah kali kedua?", opts: ["83 lelaki dan 18 wanita", "16 orang", "50 orang", "100 orang"], ans: 0, desc: "Seramai 83 lelaki dan 18 wanita berhijrah pada tahun ke-7 kenabian."},
+                {q: "Siapakah ketua rombongan hijrah ke Habsyah kali kedua?", opts: ["Jaafar bin Abi Talib", "Uthman bin Affan", "Hamzah", "Zaid"], ans: 0, desc: "Jaafar bin Abi Talib memimpin rombongan kali kedua."},
+                {q: "Siapakah raja Habsyah yang terkenal dengan sifat adil terhadap orang Islam?", opts: ["Raja An-Najashi", "Raja Firaun", "Raja Kisra", "Raja Qaisar"], ans: 0, desc: "Raja An-Najashi melayan umat Islam dengan sangat adil."},
+                {q: "Apakah hadiah yang dibawa utusan Quraisy untuk merasuah Raja Habsyah?", opts: ["Barang berharga dan kulit haiwan", "Kuda padi", "Unta merah", "Kurma Madinah"], ans: 0, desc: "Mereka membawa hadiah untuk memujuk raja memulangkan orang Islam."},
+                {q: "Bagaimanakah jawapan Raja Habsyah apabila diminta memulangkan orang Islam?", opts: ["Menolak setelah mendengar penjelasan Jaafar", "Setuju serta-merta", "Mengusir kedua-dua pihak", "Memenangi pihak Quraisy"], ans: 0, desc: "Baginda menolak setelah mendengar hujah bernas Jaafar bin Abi Talib."},
+                {q: "Berapa lamakah umat Islam menetap di negeri Habsyah?", opts: ["Selama 13 tahun", "3 tahun", "5 tahun", "10 tahun"], ans: 0, desc: "Umat Islam tinggal menetap di Habsyah selama 13 tahun."},
+                {q: "Bilakah berlakunya peristiwa Hijrah ke Taif?", opts: ["Tahun ke-10 kenabian", "Tahun ke-5 kenabian", "Tahun pertama Hijrah", "Tahun ke-8 kenabian"], ans: 0, desc: "Hijrah ke Taif berlaku pada tahun ke-10 kenabian selepas kewafatan Khadijah dan Abu Talib."},
+                {q: "Siapakah yang menemani Nabi Muhammad SAW berhijrah ke Taif?", opts: ["Zaid bin Harithah", "Abu Bakar", "Ali", "Hamzah"], ans: 0, desc: "Zaid bin Harithah (anak angkat Nabi) menemani Baginda ke Taif."},
+                {q: "Apakah nama kabilah yang ditemui Nabi di Taif?", opts: ["Bani Thaqif", "Bani Qainuqa", "Bani Nadhir", "Bani Hashim"], ans: 0, desc: "Penduduk Taif adalah daripada kalangan kabilah Bani Thaqif."},
+                {q: "Bagaimanakah layanan penduduk Taif terhadap dakwah Nabi?", opts: ["Mengusir dan melontar batu sehingga berdarah", "Menyambut gembira", "Memeluk Islam beramai-ramai", "Memberi hadiah harta"], ans: 0, desc: "Mereka menolak dakwah dan menyuruh kanak-kanak melontar batu hingga kaki Nabi berdarah."},
+                {q: "Di manakah Nabi berlindung selepas melarikan diri daripada penduduk Taif?", opts: ["Di dalam sebuah kebun anggur", "Di dalam gua", "Di bawah pokok kurma", "Di tepi sungai"], ans: 0, desc: "Baginda berlindung di sebuah kebun anggur dan berdoa kepada Allah."},
+                {q: "Siapakah yang menawarkan perlindungan kepada Nabi sekembali dari Taif?", opts: ["Mut'im bin Adi", "Abu Jahal", "Abu Sufyan", "Uthman"], ans: 0, desc: "Mut'im bin Adi bersedia melindungi Baginda masuk semula ke Makkah."},
+                {q: "Apakah tawaran Malaikat ketika Nabi disakiti penduduk Taif?", opts: ["Menghempap dua buah bukit ke atas penduduk", "Menurunkan hujan emas", "Menjadikan penduduk patuh", "Membawa Nabi ke langit"], ans: 0, desc: "Malaikat menawarkan untuk menghempap bukit ke atas penduduk Taif."},
+                {q: "Mengapakah Nabi menolak tawaran Malaikat menghempap penduduk Taif?", opts: ["Mengharap keturunan mereka memeluk Islam kelak", "Kasihan kepada kanak-kanak", "Takut kepada ketua mereka", "Tiada izin Allah"], ans: 0, desc: "Baginda berdoa semoga Allah melahirkan daripada keturunan mereka orang yang menyembah Allah."},
+                {q: "Siapakah bapa saudara Nabi yang wafat pada tahun ke-10 kenabian ('Amul Huzni)?", opts: ["Abu Talib", "Abbas", "Hamzah", "Abu Lahab"], ans: 0, desc: "Abu Talib wafat pada tahun duka cita selain Saidatina Khadijah."},
+                {q: "Apakah iktibar penting daripada peristiwa Hijrah ke Habsyah?", opts: ["Sikap berani mempertahankan akidah dan iman", "Kepentingan berniaga", "Kehebatan berperang", "Kekuatan harta"], ans: 0, desc: "Umat Islam sanggup berhijrah demi menyelamatkan akidah."},
+                {q: "Apakah iktibar daripada peristiwa Hijrah ke Taif?", opts: ["Sabar yang tinggi menghadapi cabaran dakwah", "Putus asa", "Balas dendam", "Lari dari medan"], ans: 0, desc: "Tabah dan sabar menghadapi ujian dalam menyampaikan Islam."},
+                {q: "Siapakah isteri Uthman bin Affan yang turut serta berhijrah ke Habsyah?", opts: ["Ruqayyah binti Rasulullah SAW", "Fatimah", "Ummu Kulthum", "Zainab"], ans: 0, desc: "Ruqayyah binti Rasulullah SAW bersama suaminya Uthman berhijrah ke Habsyah."},
+                {q: "Apakah nama doa yang dibaca Nabi semasa di Taif?", opts: ["Doa pengaduan kelemahan diri kepada Allah", "Doa Qunut", "Doa Dhuha", "Doa Nabi Yunus"], ans: 0, desc: "Doa mengadu kelemahan diri dan kekurangan daya kepada Allah SWT."},
+                {q: "Mengapakah Nabi memilih Habsyah sebagai destinasi hijrah?", opts: ["Kerana rajanya adil dan tidak zalim", "Kerana dekat dengan Makkah", "Kerana banyak sumber air", "Kerana disuruh penduduk Habsyah"], ans: 0, desc: "Habsyah mempunyai raja yang adil menjamin keselamatan pelarian."},
+                {q: "Siapakah utusan Quraisy yang dihantar ke Habsyah untuk merasuah Raja?", opts: ["Amru bin al-As dan Abdullah bin Abi Rabiah", "Abu Jahal", "Abu Lahab", "Abu Sufyan"], ans: 0, desc: "Amru bin al-As dan rakan diutus membawa hadiah merasuah raja."},
+                {q: "Apakah reaksi Raja An-Najashi terhadap utusan Quraisy?", opts: ["Menolak merasuah dan melindungi umat Islam", "Menerima hadiah dan mengusir Islam", "Menangkap orang Islam", "Berkecuali"], ans: 0, desc: "Raja menolak rasuah selepas mendengar penerangan Islam daripada Jaafar."},
+                {q: "Di manakah lokasi negeri Habsyah pada peta hari ini?", opts: ["Negeri Parsi", "Negeri Habsyah (Ethiopia)", "Negeri Syam", "Negeri Mesir"], ans: 0, desc: "Habsyah terletak di benua Afrika (kini Ethiopia)."},
+                {q: "Siapakah anak angkat Nabi yang turut terluka bersama Baginda di Taif?", opts: ["Zaid bin Harithah", "Ali", "Usamah", "Anas"], ans: 0, desc: "Zaid bin Harithah turut melindungi dan terluka bersama Nabi."},
+                {q: "Apakah gelaran tahun kewafatan Khadijah dan Abu Talib?", opts: ["'Amul Huzni (Tahun Duka Cita)", "Tahun Gajah", "Tahun Hijrah", "Tahun Perang"], ans: 0, desc: "Tahun ke-10 kenabian dikenali sebagai 'Amul Huzni."},
+                {q: "Bagaimanakah sikap Mut'im bin Adi terhadap Nabi?", opts: ["Memberi perlindungan masuk semula ke Makkah", "Menentang keras", "Mengusir Nabi", "Membunuh Nabi"], ans: 0, desc: "Mut'im bin Adi bersedia memberi jaminan perlindungan."},
+                {q: "Apakah pelajaran utama daripada ketabahan Nabi di Taif?", opts: ["Sentiasa bertawakal kepada Allah dalam kesusahan", "Berputus asa", "Meminta bantuan musuh", "Menutup diri"], ans: 0, desc: "Bertawakal penuh kepada Allah SWT walau ditolak manusia."},
+                {q: "Mengapakah dakwah ke Taif dilakukan selepas kematian Abu Talib?", opts: ["Kehilangan pelindung di Makkah", "Arahan penduduk Taif", "Ingin berniaga", "Suka melancong"], ans: 0, desc: "Kehilangan Abu Talib menyebabkan Makkah tidak lagi selamat untuk dakwah terbuka tanpa perlindungan."}
+            ];
+
+            const p3 = [
+                {q: "Apakah pengertian Isra' dari segi istilah?", opts: ["Perjalanan malam dari Masjidil Haram ke Masjidil Aqsa", "Perjalanan siang ke Madinah", "Perjalanan naik ke langit", "Perjalanan berhijrah ke Habsyah"], ans: 0, desc: "Isra' ialah perjalanan Nabi dari Masjidil Haram ke Masjidil Aqsa pada waktu malam."},
+                {q: "Apakah pula pengertian Mi'raj?", opts: ["Perjalanan naik ke alam tinggi dari Masjidil Aqsa ke Sidratul Muntaha", "Perjalanan ke Taif", "Perjalanan melarikan diri", "Perjalanan berniaga"], ans: 0, desc: "Mi'raj ialah perjalanan naik ke alam tinggi melintasi langit ke Sidratul Muntaha."},
+                {q: "Bilakah tarikh berlakunya peristiwa Isra' dan Mi'raj?", opts: ["27 Rejab, tahun ke-11 kenabian", "17 Ramadan", "12 Rabiulawal", "1 Muharam"], ans: 0, desc: "Berlaku pada malam 27 Rejab tahun ke-11 kenabian."},
+                {q: "Apakah nama kenderaan yang dinaiki Nabi semasa Isra' dan Mi'raj?", opts: ["Buraq", "Kuda", "Unta", "Kapal terbang"], ans: 0, desc: "Buraq adalah haiwan tunggangan istimewa berwarna putih dan pantas."},
+                {q: "Di manakah tempat Nabi berhenti solat yang dikaitkan dengan tempat lahir Nabi Isa AS?", opts: ["Bait Bethlehem", "Madian", "Tursina", "Baitulmuqaddis"], ans: 0, desc: "Baitullaham adalah tempat kelahiran Nabi Isa AS."},
+                {q: "Siapakah nabi yang ditemui di langit pertama?", opts: ["Nabi Adam AS", "Nabi Isa AS", "Nabi Musa AS", "Nabi Ibrahim AS"], ans: 0, desc: "Nabi Adam AS ditemui di langit yang pertama."},
+                {q: "Berapakah jumlah asal solat fardu yang diwajibkan ke atas umat Islam?", opts: ["50 waktu sehari semalam", "5 waktu", "10 waktu", "20 waktu"], ans: 0, desc: "Asal pensyariatan solat ialah 50 waktu sebelum diringankan menjadi 5 waktu."},
+                {q: "Siapakah nabi yang menasihati Nabi supaya memohon pengurangan waktu solat?", opts: ["Nabi Musa AS", "Nabi Ibrahim AS", "Nabi Nuh AS", "Nabi Yusuf AS"], ans: 0, desc: "Nabi Musa AS menyaran Baginda merayu diringankan waktu solat."},
+                {q: "Apakah nama sungai syurga yang bersifat batin di Sidratul Muntaha?", opts: ["Sungai Salsabil dan Sungai Kauthar", "Sungai Nil dan Furat", "Sungai Zamzam", "Sungai Madinah"], ans: 0, desc: "Salsabil dan Kauthar adalah sungai batin di syurga."},
+                {q: "Apakah nama dua sungai zahir di syurga yang dilihat Nabi ketika Isra'?", opts: ["Sungai Nil dan Sungai Furat", "Sungai Salsabil", "Sungai Kauthar", "Sungai Zamzam"], ans: 0, desc: "Sungai Nil dan Sungai Furat adalah sungai zahir di syurga."},
+                {q: "Apakah kewajipan besar yang diterima Nabi secara terus tanpa perantaraan?", opts: ["Ibadat solat fardhu 5 waktu", "Puasa", "Zakat", "Haji"], ans: 0, desc: "Solat fardhu 5 waktu difardhukan langsung daripada Allah SWT."},
+                {q: "Mengapakah peristiwa Isra' dan Mi'raj dikurniakan kepada Nabi?", opts: ["Sebagai hiburan dan mukjizat selepas tahun duka cita", "Sebagai hukuman kafir", "Arahan penduduk Makkah", "Supaya Nabi berehat"], ans: 0, desc: "Allah mengurniakan mukjizat ini untuk menghiburkan hati Nabi setelah kewafatan Khadijah dan Abu Talib."},
+                {q: "Siapakah nama wanita solehah yang diziarahi kuburnya yang wangi semasa Isra'?", opts: ["Masyitah (tukang sikat anak Firaun)", "Asiah", "Fatimah", "Khadijah"], ans: 0, desc: "Masyitah ialah tukang sikat rambut puteri Firaun yang syahid kerana iman."},
+                {q: "Di manakah tempat Nabi Musa AS melarikan diri daripada Firaun?", opts: ["Madian", "Tursina", "Bait Bethlehem", "Makkah"], ans: 0, desc: "Madian ialah tempat Nabi Musa AS melarikan diri dari Firaun."},
+                {q: "Siapakah penjaga neraka yang ditemui Nabi ketika melihat balasan azab?", opts: ["Malaikat Malik", "Malaikat Ridwan", "Malaikat Munkar", "Malaikat Nakir"], ans: 0, desc: "Malaikat Malik menjaga neraka dengan wajah gerun dan tidak pernah senyum."},
+                {q: "Apakah balasan bagi pelaku riba yang dilihat Nabi semasa Isra'?", opts: ["Perut buncit kesukaran bergerak", "Memakan api neraka", "Minum air nanah", "Disarung besi panas"], ans: 0, desc: "Pelaku riba digambarkan dengan keadaan perut buncit besar."},
+                {q: "Apakah iktibar utama daripada pensyariatan solat secara terus?", opts: ["Solat adalah tiang seri agama Islam", "Solat syarat jadi kaya", "Solat untuk bersenam", "Solat untuk dipuji"], ans: 0, desc: "Solat adalah kewajipan utama dan tiang agama."},
+                {q: "Siapakah nabi yang ditemui Nabi Muhammad SAW di langit ketujuh?", opts: ["Nabi Ibrahim AS", "Nabi Adam AS", "Nabi Isa AS", "Nabi Musa AS"], ans: 0, desc: "Nabi Ibrahim AS ditemui di langit ketujuh."},
+                {q: "Apakah bentuk fizikal Buraq yang diterangkan dalam buku teks?", opts: ["Lebih besar dari keldai, lebih kecil dari bighal", "Kuda biasa", "Unta bersayap", "Burung besar"], ans: 0, desc: "Buraq berwarna putih, lebih besar dari keldai dan lebih kecil dari bighal."},
+                {q: "Di manakah tempat Nabi berhenti solat di Tursina?", opts: ["Tempat Nabi Musa AS bercakap-cakap dengan Allah", "Tempat lahir Nabi Isa", "Tempat Nabi Nuh membina bahtera", "Tempat Nabi Ibrahim dibakar"], ans: 0, desc: "Tursina adalah tempat Nabi Musa AS berbicara dengan Allah SWT."},
+                {q: "Siapakah nabi yang ditemui Nabi Muhammad SAW di langit kedua?", opts: ["Nabi Isa AS dan Nabi Yahya AS", "Nabi Adam AS", "Nabi Yusuf AS", "Nabi Idris AS"], ans: 0, desc: "Nabi Isa AS dan Nabi Yahya AS ditemui di langit kedua."},
+                {q: "Siapakah nabi yang ditemui Nabi Muhammad SAW di langit ketiga?", opts: ["Nabi Yusuf AS", "Nabi Idris AS", "Nabi Harun AS", "Nabi Musa AS"], ans: 0, desc: "Nabi Yusuf AS ditemui di langit ketiga."},
+                {q: "Siapakah nabi yang ditemui Nabi Muhammad SAW di langit keempat?", opts: ["Nabi Idris AS", "Nabi Harun AS", "Nabi Musa AS", "Nabi Ibrahim AS"], ans: 0, desc: "Nabi Idris AS ditemui di langit keempat."},
+                {q: "Siapakah nabi yang ditemui Nabi Muhammad SAW di langit kelima?", opts: ["Nabi Harun AS", "Nabi Musa AS", "Nabi Ibrahim AS", "Nabi Adam AS"], ans: 0, desc: "Nabi Harun AS ditemui di langit kelima."},
+                {q: "Siapakah nabi yang ditemui Nabi Muhammad SAW di langit keenam?", opts: ["Nabi Musa AS", "Nabi Ibrahim AS", "Nabi Adam AS", "Nabi Isa AS"], ans: 0, desc: "Nabi Musa AS ditemui di langit keenam."},
+                {q: "Apakah nama binaan suci di langit ketujuh yang dilihat Nabi berhampiran Sidratul Muntaha?", opts: ["Baitul Makmur", "Kaabah", "Baitulmaqdis", "Sidrah"], ans: 0, desc: "Baitul Makmur adalah tempat ibadat malaikat di langit ketujuh."},
+                {q: "Apakah balasan bagi orang yang melakukan dosa zina yang dilihat Nabi?", opts: ["Memakan daging busuk sedangkan di sisinya daging enak", "Perut buncit", "Minum air nanah", "Digantung lidah"], ans: 0, desc: "Pelaku zina digambarkan memakan daging busuk menolak daging bersih."},
+                {q: "Adakah wajib bagi umat Islam meyakini peristiwa Isra' dan Mi'raj?", opts: ["Ya, wajib meyakini kesahihannya", "Sunat", "Harus", "Makruh"], ans: 0, desc: "Wajib meyakini bahawa Isra' dan Mi'raj adalah benar mukjizat Nabi."},
+                {q: "Mengapakah kaum kafir Quraisy mendustakan cerita Isra' Nabi?", opts: ["Kerana perjalanan Makkah ke Baitulmaqdis biasanya mengambil masa sebulan", "Kerana Nabi tidak pergi", "Kerana Buraq tiada", "Kerana mereka tidur"], ans: 0, desc: "Mereka mendustakan kerana perjalanan itu dianggap mustahil pada zaman tersebut."},
+                {q: "Apakah iktibar mempercayai balasan amalan di akhirat?", opts: ["Setiap perbuatan baik atau buruk pasti dibalas Allah", "Manusia bebas berbuat dosa", "Tiada balasan", "Dunia selamanya"], ans: 0, desc: "Setiap amal perbuatan manusia pasti akan dihitung dan dibalas Allah SWT."}
+            ];
+
+            const p4 = [
+                {q: "Berapakah bilangan penduduk Yathrib yang berjanji setia pada Perjanjian Aqabah ke-3?", opts: ["73 orang lelaki dan 2 orang wanita", "12 orang", "40 orang", "100 orang"], ans: 0, desc: "Seramai 73 lelaki dan 2 wanita hadir berikrar taat setia di Aqabah."},
+                {q: "Siapakah orang pertama yang berhijrah ke Yathrib dari Makkah?", opts: ["Abu Salamah", "Umar", "Ali", "Hamzah"], ans: 0, desc: "Abu Salamah ialah sahabat pertama berhijrah ke Yathrib."},
+                {q: "Siapakah yang tidur di katil Nabi untuk mengaburi mata pemuda Quraisy?", opts: ["Ali bin Abi Talib", "Abu Bakar", "Zaid", "Bilal"], ans: 0, desc: "Sayyidina Ali rela berkorban tidur di tempat tidur Rasulullah SAW."},
+                {q: "Bilakah tarikh rasmi Nabi keluar berhijrah ke Yathrib?", opts: ["2 Rabiulawal (20 September 622 Masihi)", "17 Ramadan", "27 Rejab", "1 Muharam"], ans: 0, desc: "Nabi keluar berhijrah pada 2 Rabiulawal bersamaan 20 September 622 Masihi."},
+                {q: "Berapa lamakah Nabi dan Abu Bakar bersembunyi di Gua Thur?", opts: ["Selama 3 hari 3 malam", "1 minggu", "40 hari", "1 malam"], ans: 0, desc: "Baginda bersembunyi selama 3 hari berturut-turut di Gua Thur."},
+                {q: "Siapakah nama penunjuk jalan bukan Islam yang membantu hijrah Nabi?", opts: ["Abdullah bin Uraiqit", "Waraqah", "Umayyah", "Abu Jahl"], ans: 0, desc: "Abdullah bin Uraiqit diupah menjadi penunjuk jalan yang mahir."},
+                {q: "Apakah nama tempat persinggahan pertama Nabi sebelum masuk ke Yathrib?", opts: ["Quba'", "Madinah", "Habsyah", "Taif"], ans: 0, desc: "Baginda singgah di Quba' sebelum meneruskan perjalanan ke Madinah."},
+                {q: "Apakah nama masjid pertama yang dibina dalam sejarah Islam?", opts: ["Masjid Quba'", "Masjid Nabawi", "Masjidil Aqsa", "Masjid Makkah"], ans: 0, desc: "Masjid Quba' dibina ketika singgah di Quba'."},
+                {q: "Dengan nasyid apakah penduduk Yathrib menyambut ketibaan Nabi?", opts: ["Tala'al Badru 'Alaina", "Asmaul Husna", "Selawat Nabi", "Burdah"], ans: 0, desc: "Nasyid 'Tala'al Badru 'Alaina' didendangkan penduduk menyambut Baginda."},
+                {q: "Kepada apakah nama Yathrib ditukar selepas hijrah?", opts: ["Madinah Al-Munawwarah (Kota yang Bercahaya)", "Makkah", "Taif", "Syam"], ans: 0, desc: "Yathrib ditukar nama kepada Madinah Al-Munawwarah."},
+                {q: "Berapa lamakah Nabi berada di Quba' sebelum bergerak ke Madinah?", opts: ["4 hari", "3 hari", "1 minggu", "1 bulan"], ans: 0, desc: "Baginda berada di Quba' selama 4 hari membina masjid."},
+                {q: "Bilakah tarikh ketibaan Nabi di Madinah Al-Munawwarah?", opts: ["16 Rabiulawal", "2 Rabiulawal", "1 Muharam", "10 Zulhijjah"], ans: 0, desc: "Baginda tiba di Madinah pada 16 Rabiulawal tahun 622 Masihi."},
+                {q: "Apakah ayat yang dibaca Nabi sambil melontar pasir ke arah pemuda Quraisy?", opts: ["Surah Yasin, ayat 9", "Surah Al-Alaq", "Surah Al-Hijr", "Surah Al-Masad"], ans: 0, desc: "Baginda membaca Surah Yasin ayat 9 semasa keluar rumah dikepung musuh."},
+                {q: "Siapakah sahabat yang menemani Nabi berhijrah bertolak dari Gua Thur?", opts: ["Abu Bakar As-Siddiq", "Umar", "Uthman", "Ali"], ans: 0, desc: "Abu Bakar As-Siddiq menemani Nabi berhijrah ke Yathrib."},
+                {q: "Apakah erti perkataan 'Madinah'?", opts: ["Kota yang bercahaya", "Bandar perniagaan", "Kampung aman", "Tanah suci"], ans: 0, desc: "Madinah bermaksud kota yang bercahaya."},
+                {q: "Apakah reaksi penduduk Yathrib apabila mendengar berita hijrah Nabi?", opts: ["Keluar beramai-ramai menyambut dengan gembira", "Menolak kedatangan", "Melarikan diri", "Berperang"], ans: 0, desc: "Mereka keluar beramai-ramai menyambut Baginda dengan penuh kegembiraan."},
+                {q: "Mengapakah penduduk Yathrib lebih mudah menerima Islam?", opts: ["Sering mendengar cerita tentang Nabi akhir zaman daripada orang Yahudi", "Suka berperang", "Dipaksa raja", "Kerana harta"], ans: 0, desc: "Kerana mereka sering mendengar maklumat kedatangan Nabi akhir zaman daripada kaum Yahudi."},
+                {q: "Apakah iktibar penting daripada peristiwa Hijrah ke Yathrib?", opts: ["Pengorbanan, perancangan rapi dan pertolongan Allah", "Lari dari masalah", "Putus asa", "Mementingkan diri"], ans: 0, desc: "Hijrah menuntut pengorbanan besar, perancangan rapi dan tawakal."},
+                {q: "Siapakah nama pemilik tanah tempat pembinaan Masjid Quba'?", opts: ["Kalthum bin Hadham", "Abu Bakar", "Arqam", "Zaid"], ans: 0, desc: "Masjid Quba' dibina di atas tanah milik Kalthum bin Hadham."},
+                {q: "Apakah peranan utama Perjanjian Aqabah pertama dan kedua?", opts: ["Ikrar taat setia dan melindungi Nabi", "Perjanjian damai dengan Rom", "Perjanjian perniagaan", "Gencatan senjata"], ans: 0, desc: "Ikrar taat setia penduduk Yathrib melindungi Nabi dan Islam."},
+                {q: "Siapakah orang yang mengejar Nabi hingga tercampak ke dalam pasir di tengah jalan?", opts: ["Suraqah bin Malik", "Abu Jahal", "Abu Lahab", "Ikrimah"], ans: 0, desc: "Suraqah bin Malik mengejar Nabi tetapi kuda tersungkur terbenam dalam pasir."},
+                {q: "Apakah tindakan Suraqah selepas kudanya tersungkur?", opts: ["Memohon jaminan keamanan daripada Nabi", "Terus membunuh", "Melarikan diri", "Memanggil tentera"], ans: 0, desc: "Beliau memohon keamanan dan berjanji tidak memberitahu sesiapa."},
+                {q: "Mengapakah kaum Quraisy merancang membunuh Nabi sebelum berhijrah?", opts: ["Takut Islam bertapak kukuh di Yathrib", "Nabi mengambil harta mereka", "Nabi memulakan perang", "Nabi tiada pengikut"], ans: 0, desc: "Mereka bimbang Nabi selamat sampai ke Yathrib dan membina kekuatan."},
+                {q: "Apakah nama lain bagi kota Madinah sebelum Islam?", opts: ["Yathrib", "Syam", "Makkah", "Taif"], ans: 0, desc: "Nama asal Madinah ialah Yathrib."},
+                {q: "Di manakah lokasi Yathrib berbanding Makkah?", opts: ["Di sebelah utara Makkah", "Di sebelah selatan Makkah", "Di sebelah timur", "Di sebelah barat"], ans: 0, desc: "Yathrib terletak di sebelah utara Makkah Al-Mukarramah."},
+                {q: "Siapakah nama isteri Abu Bakar yang membawa bekalan makanan ke Gua Thur?", opts: ["Asma' binti Abu Bakar", "Aisyah", "Fatimah", "Khadijah"], ans: 0, desc: "Asma' binti Abu Bakar menghantar bekalan makanan ke Gua Thur."},
+                {q: "Siapakah abang Asma' yang menyampaikan maklumat risikan musuh di Gua Thur?", opts: ["Abdullah bin Abu Bakar", "Umar", "Zaid", "Talhah"], ans: 0, desc: "Abdullah bin Abu Bakar mengintip pergerakan Quraisy dan melaporkan kepada Nabi."},
+                {q: "Apakah gelaran yang diberikan kepada Asma' binti Abu Bakar?", opts: ["Zat an-Nitaqain (Yang mempunyai dua ikatan pinggang)", "Ummul Mukminin", "Al-Batul", "As-Syahidah"], ans: 0, desc: "Diberikan gelaran Zat an-Nitaqain kerana mengoyak ikat pinggang mengikat bekalan."},
+                {q: "Siapakah penggembala kambing Abu Bakar yang memadam jejak kaki di Gua Thur?", opts: ["Amir bin Fuhairah", "Bilal", "Zaid", "Anas"], ans: 0, desc: "Amir bin Fuhairah membawa kambing memadam jejak kaki penjejak musuh."},
+                {q: "Apakah pengajaran agung daripada perlindungan Allah di Gua Thur?", opts: ["Allah sentiasa menolong hamba yang beriman dan bertawakal", "Manusia tidak perlu berusaha", "Musuh mudah letih", "Gua sangat selamat"], ans: 0, desc: "Pertolongan Allah pasti tiba bagi mereka yang berjuang di jalan-Nya."}
+            ];
+
+            const p5 = [
+                {q: "Apakah perkara pertama yang dilakukan Rasulullah SAW sebaik tiba di Madinah?", opts: ["Membina masjid", "Berperang", "Berniaga", "Berehat"], ans: 0, desc: "Membina masjid adalah asas pertama pembinaan peradaban Islam."},
+                {q: "Apakah nama masjid pertama yang dibina di Madinah?", opts: ["Masjid Quba'", "Masjid Nabawi", "Masjidil Haram", "Masjid Kuffah"], ans: 0, desc: "Masjid Quba' dibina atas dasar taqwa."},
+                {q: "Di manakah letaknya Raudhah dalam kawasan Masjid Nabawi?", opts: ["Di dalam Masjid Nabawi (tempat mustajab berdoa)", "Di Masjid Quba'", "Di Makkah", "Di Taif"], ans: 0, desc: "Raudhah ialah tempat istimewa dan mustajab berdoa di dalam Masjid Nabawi."},
+                {q: "Siapakah sahabat yang diutus ke Madinah mengajar Al-Quran sebelum hijrah Nabi?", opts: ["Mus'ab bin Umair", "Bilal", "Ali", "Zaid"], ans: 0, desc: "Mus'ab bin Umair diutus sebagai pendakwah dan guru Al-Quran di Madinah."},
+                {q: "Bagaimanakah cara tawanan perang Badar menebus diri mereka untuk bebas?", opts: ["Mengajar 10 kanak-kanak Madinah membaca dan menulis", "Membayar 1000 dinar", "Memberi unta", "Menanam kurma"], ans: 0, desc: "Tawanan dibebaskan dengan syarat mencelikkan huruf anak-anak Madinah."},
+                {q: "Siapakah mualazin pertama yang diarah melaungkan azan dalam Islam?", opts: ["Bilal bin Rabah", "Abdullah bin Zaid", "Umar", "Hamzah"], ans: 0, desc: "Bilal bin Rabah dipilih melaungkan azan kerana suara merdunya."},
+                {q: "Bilakah ibadat zakat diwajibkan ke atas umat Islam?", opts: ["Tahun ke-2 Hijrah", "Tahun pertama Hijrah", "Tahun ke-5 Hijrah", "Tahun ke-9 Hijrah"], ans: 0, desc: "Zakat difardhukan pada tahun ke-2 Hijrah selepas pembentukan negara."},
+                {q: "Apakah hukum amalan riba dalam sistem ekonomi Islam?", opts: ["Haram disisi syarak", "Harus", "Makruh", "Sunat"], ans: 0, desc: "Riba diharamkan secara tegas di dalam al-Quran."},
+                {q: "Siapakah sahabat pelopor perniagaan terkemuka yang kaya dan dermawan di Madinah?", opts: ["Abdul Rahman bin Auf", "Abu Bakar", "Uthman", "Ali"], ans: 0, desc: "Abdul Rahman bin Auf adalah tokoh perniagaan ulung di Madinah."},
+                {q: "Apakah fungsi utama masjid pada zaman Rasulullah SAW?", opts: ["Tempat ibadat, pusat pentadbiran, mesyuarat dan ilmu", "Tempat simpan senjata", "Tempat tidur musuh", "Pasar borong"], ans: 0, desc: "Masjid menjadi pusat sehenti pentadbiran, ibadat dan komuniti ummah."},
+                {q: "Apakah surah dan ayat yang memuji pembinaan Masjid Quba' atas dasar taqwa?", opts: ["Surah At-Taqbah, ayat 108", "Surah Al-Baqarah", "Surah Ali 'Imran", "Surah Yasin"], ans: 0, desc: "Surah At-Taubah ayat 108 memuji Masjid Quba' yang didirikan atas dasar taqwa."},
+                {q: "Apakah nama ruang khas di Masjid Nabawi tempat tinggal golongan fakir miskin (Muhajirin)?", opts: ["Suffah", "Raudhah", "Minbar", "Mihrab"], ans: 0, desc: "Suffah adalah anjung tempat tinggal sahabat Muhajirin yang miskin."},
+                {q: "Siapakah sahabat yang bermimpi mendengar kalimah azan lalu diajar kepada Nabi?", opts: ["Abdullah bin Zaid", "Bilal bin Rabah", "Umar bin al-Khattab", "Ali"], ans: 0, desc: "Abdullah bin Zaid bermimpi tentang kalimah azan yang disetujui Nabi."},
+                {q: "Apakah kalimah tambahan yang dilaungkan Bilal pada azan solat Subuh atas persetujuan Nabi?", opts: ["'As-salatu khairum minan naum' (Solat itu lebih baik dari tidur)", "Hayya 'alal falah", "Allahu akbar", "Qad qamatis salah"], ans: 0, desc: "Bilal menambah kalimah 'As-salatu khairum minan naum' untuk solat Subuh."},
+                {q: "Apakah tiga teras utama pendidikan Islam yang ditegakkan Nabi di Madinah?", opts: ["Akidah, Syariah dan Akhlak", "Ekonomi, Politik, Sosial", "Membaca, Menulis, Mengira", "Solat, Zakat, Puasa"], ans: 0, desc: "Tiga teras utama pendidikan Islam ialah Akidah, Syariah dan Akhlak."},
+                {q: "Siapakah sahabat yang diarah Nabi mengajar hukum-hakam agama kepada wanita Madinah?", opts: ["Nabi menetapkan hari khusus seminggu sekali", "Abu Bakar", "Umar", "Bilal"], ans: 0, desc: "Nabi menyediakan masa khusus seminggu sekali mengajar wanita Madinah."},
+                {q: "Apakah mata pencarian utama penduduk Madinah sebelum kedatangan Islam?", opts: ["Pertanian (terutama tanaman kurma)", "Perlombongan", "Perikanan", "Pelancongan"], ans: 0, desc: "Madinah adalah kawasan pertanian subur terutama kebun kurma."},
+                {q: "Siapakah sahabat yang diarah Nabi mengajar menulis kepada penduduk Madinah?", opts: ["Abdullah bin Said bin al-As", "Bilal", "Zaid", "Ali"], ans: 0, desc: "Abdullah bin Said bin al-As diarah mengajar penduduk Madinah menulis dengan betul."},
+                {q: "Bilakah ibadat puasa Ramadan diwajibkan ke atas umat Islam?", opts: ["Tahun ke-2 Hijrah", "Tahun pertama Hijrah", "Tahun ke-5 Hijrah", "Tahun ke-9 Hijrah"], ans: 0, desc: "Puasa Ramadan difardhukan pada tahun ke-2 Hijrah."},
+                {q: "Bilakah ibadat haji diwajibkan ke atas umat Islam?", opts: ["Tahun ke-9 Hijrah", "Tahun ke-2 Hijrah", "Tahun ke-5 Hijrah", "Tahun pertama Hijrah"], ans: 0, desc: "Ibadat haji difardhukan pada tahun ke-9 Hijrah."},
+                {q: "Apakah hadis riwayat Ibn Majah mengenai tuntutan ilmu?", opts: ["'Talabul ilmi faridatun ala kulli muslimin' (Menuntut ilmu wajib atas setiap Muslim)", "Al-ilmru nurun", "Ukhuzul hikmah", "Iqra'"], ans: 0, desc: "Hadis menyatakan menuntut ilmu adalah wajib bagi setiap orang Islam."},
+                {q: "Apakah perumpamaan ilmu yang tidak diamalkan berdasarkan kata-kata hikmah?", opts: ["Seperti pokok tiada buah", "Seperti air laut", "Seperti bintang dilangit", "Seperti angin lalu"], ans: 0, desc: "Ilmu tanpa amal diumpamakan seperti pokok tiada buah."},
+                {q: "Siapakah Saidatina Aisyah RA dalam bidang ilmu pengetahuan?", opts: ["Tokoh sahabat wanita berilmu tinggi tempat rujuk sahabat lain", "Isteri biasa", "Peniaga pasar", "Pahlawan perang"], ans: 0, desc: "Saidatina Aisyah RA adalah rujukan utama ilmu fiqh dan hadis selepas wafat Nabi."},
+                {q: "Mengapakah aqidah yang benar diletakkan sebagai asas pertama negara Madinah?", opts: ["Kerana ia kunci penerimaan amalan ibadat lain", "Kerana syarat jadi kaya", "Kerana disukai orang ramai", "Syarat berperang"], ans: 0, desc: "Aqidah mentauhidkan Allah adalah akar tunjang teras Islam."},
+                {q: "Apakah peranan penting institusi masjid dalam menyatukan masyarakat Madinah?", opts: ["Tempat pertemuan solat berjemaah dan perpaduan ummah", "Tempat simpan harta", "Pasar jual beli", "Tempat rehat"], ans: 0, desc: "Masjid menyatukan saf masyarakat tanpa membezakan darjat."},
+                {q: "Bagaimanakah sikap Rasulullah SAW dalam mendidik para sahabat?", opts: ["Menjadi guru teladan yang sabar dan penyayang", "Marah-marah", "Sombong", "Menyendiri"], ans: 0, desc: "Baginda bertindak sebagai pendidik ulung yang membimbing dengan hikmah."},
+                {q: "Apakah iktibar daripada penekanan ilmu pengetahuan dalam Islam?", opts: ["Wajib menuntut ilmu untuk kejayaan dunia dan akhirat", "Ilmu hanya untuk ulama", "Ilmu tidak penting", "Cukup sekadar tahu membaca"], ans: 0, desc: "Pendidikan adalah teras kecemerlangan peradaban ummah dunia dan akhirat."},
+                {q: "Apakah bentuk binaan asal Masjid Nabawi pada zaman Nabi?", opts: ["Tiang batang kurma, bumbung pelepah kurma dan lantai pasir", "Batu marmar indah", "Simen konkrit", "Kayu jati berukir"], ans: 0, desc: "Binaan ringkas daripada pelepah kurma, tiang kayu dan lantai pasir."},
+                {q: "Apakah kepentingan solat berjemaah yang diajar di masjid?", opts: ["Mengeratkan ukhuwah dan perpaduan saf umat", "Mencari publisiti", "Menunjuk kekuatan", "Menghabiskan masa"], ans: 0, desc: "Solat berjemaah melatih disiplin dan perpaduan kukuh sesama Muslim."},
+                {q: "Apakah mesej agung daripada pembinaan negara Islam Madinah?", opts: ["Islam adalah al-Din (way of life) yang mengatur seluruh aspek kehidupan", "Islam hanya agama ritual", "Islam khusus untuk bangsa Arab", "Islam menolak kemajuan"], ans: 0, desc: "Madinah membuktikan Islam mengatur urusan akidah, ibadat, sosial, ekonomi dan politik."}
+            ];
+
+            const p6 = [
+                {q: "Apakah gelaran bagi orang Islam Makkah yang berhijrah ke Madinah?", opts: ["Golongan Muhajirin", "Golongan Ansar", "Golongan Yahudi", "Golongan Musyrikin"], ans: 0, desc: "Muhajirin ialah umat Islam Makkah yang berhijrah meninggalkan harta benda."},
+                {q: "Apakah gelaran bagi penduduk Madinah yang membantu orang Muhajirin?", opts: ["Golongan Ansar (Penolong)", "Golongan Muhajirin", "Golongan Quraizah", "Golongan Thaqif"], ans: 0, desc: "Ansar bermaksud pembantu yang menolong golongan Muhajirin."},
+                {q: "Apakah asas utama yang mengeratkan persaudaraan Muhajirin dan Ansar?", opts: ["Ikatan akidah yang benar dan taqwa kepada Allah SWT", "Ikatan keluarga", "Ikatan perniagaan", "Ikatan bangsa Arab"], ans: 0, desc: "Persaudaraan ummah dibina kukuh atas landasan akidah dan iman."},
+                {q: "Siapakah yang dipersaudarakan oleh Nabi antara Muhajirin dan Ansar?", opts: ["Abdul Rahman bin Auf dengan Saad bin Ar-Rabi'", "Abu Bakar dengan Umar", "Ali dengan Uthman", "Hamzah dengan Zaid"], ans: 0, desc: "Nabi mempersaudarakan Abdul Rahman bin Auf dan Saad bin Ar-Rabi'."},
+                {q: "Bagaimanakah sikap Saad bin Ar-Rabi' ketika menawarkan hartanya kepada Abdul Rahman bin Auf?", opts: ["Sangat ikhlas membahagikan separuh hartanya", "Kedekut", "Meminta bayaran", "Enggan menolong"], ans: 0, desc: "Kaum Ansar sangat pemurah membahagikan harta kepada saudara Muhajirin."},
+                {q: "Apakah simbol perpaduan utama yang menyatukan umat Islam di Madinah?", opts: ["Institusi Masjid", "Istana negara", "Pasar utama", "Medan perang"], ans: 0, desc: "Masjid menjadi pusat perhimpunan dan perpaduan ummah."},
+                {q: "Apakah rujukan utama umat Islam dalam menyelesaikan masalah bermasyarakat?", opts: ["Al-Quran dan Sunnah Rasulullah SAW", "Adat istiadat nenek moyang", "Undang-undang Rom", "Pendapat ketua kabilah"], ans: 0, desc: "Al-Quran dan Sunnah menjadi panduan hidup dan perundangan utama."},
+                {q: "Apakah ganjaran di akhirat bagi orang yang berkasih sayang kerana Allah?", opts: ["Mendapat naungan arasy Allah SWT pada hari kiamat", "Masuk neraka", "Diberi harta dunia", "Menjadi raja"], ans: 0, desc: "Golongan ini dijanjikan naungan teduh di padang mahsyar."},
+                {q: "Mengapakah golongan Muhajirin berhijrah dalam keadaan miskin dan sehelai sepinggang?", opts: ["Terpaksa meninggalkan harta benda dan keluarga di Makkah", "Suka hidup miskin", "Disuruh merompak", "Tiada harta asal"], ans: 0, desc: "Mereka meninggalkan harta kekayaan di Makkah demi mempertahankan akidah."},
+                {q: "Apakah iktibar terbesar daripada peristiwa persaudaraan ummah di Madinah?", opts: ["Sikap tolong-menolong dan perpaduan ummah", "Hidup berpecah-belah", "Mementingkan diri sendiri", "Berdendam kesumat"], ans: 0, desc: "Perpaduan ummah menjamin kekuatan dan kedaulatan negara Islam."},
+                {q: "Apakah surah dan ayat yang memuji golongan Ansar yang mengutamakan saudara Muhajirin?", opts: ["Surah Al-Hasyr, ayat 9", "Surah Al-Baqarah", "Surah Ali 'Imran", "Surah An-Nur"], ans: 0, desc: "Surah Al-Hasyr ayat 9 memuji sifat pemurah kaum Ansar walau mereka sendiri dalam kesusahan."},
+                {q: "Apakah erti 'Al-Ansar' dari segi bahasa?", opts: ["Pembantu atau penolong", "Saudara", "Pendatang", "Pemimpin"], ans: 0, desc: "Al-Ansar bermaksud pembantu atau penolong agama Allah."},
+                {q: "Apakah erti 'Al-Muhajirin' dari segi bahasa?", opts: ["Orang yang berhijrah", "Orang asli", "Peniaga", "Tetamu"], ans: 0, desc: "Al-Muhajirin bermaksud orang yang berpindah hijrah dari Makkah ke Madinah."},
+                {q: "Bagaimanakah reaksi Abdul Rahman bin Auf apabila ditawarkan harta oleh Saad bin Ar-Rabi'?", opts: ["Menolak dengan baik dan meminta tunjukkan jalan ke pasar berniaga", "Mengambil semua harta", "Marah", "Meminta separuh rumah"], ans: 0, desc: "Beliau menolak secara baik dan meminta ditunjukkan arah pasar untuk berniaga halal."},
+                {q: "Siapakah yang menjadi pemimpin agung menyatukan Muhajirin dan Ansar?", opts: ["Nabi Muhammad SAW", "Abu Bakar", "Umar", "Ali"], ans: 0, desc: "Rasulullah SAW memimpin penyatuan ummah di Madinah."},
+                {q: "Apakah kesan perpaduan ummah terhadap kekuatan negara Madinah?", opts: ["Negara menjadi aman, kuat dan digeruni musuh", "Negara menjadi lemah", "Berlaku huru-hara", "Rakyat bercerai-berai"], ans: 0, desc: "Perpaduan melahirkan kekuatan kestabilan politik dan pertahanan negara."},
+                {q: "Apakah sifat tercela yang berjaya dihapuskan melalui persaudaraan Islam?", opts: ["Perbalahan kaum Jahiliah (Aus & Khazraj) serta permusuhan", "Sifat dermawan", "Sifat jujur", "Sifat sabar"], ans: 0, desc: "Permusuhan lama suku Aus dan Khazraj lebur disatukan Islam."},
+                {q: "Apakah hadis yang menyebut perumpamaan orang mukmin seperti satu jasad?", opts: ["'Mata'ul mukmini lil mukmini kal bunyani yasyuddu ba'duhu ba'da'", "Talabul ilmi", "Ad-dinun nasihah", "Man la yarham"], ans: 0, desc: "Mukmin dengan mukmin yang lain adalah bagikan satu bangunan yang kukuh saling menyokong."},
+                {q: "Apakah nilai murni yang harus diamalkan dalam hubungan kejiranan?", opts: ["Saling kunjung-mengunjung, bertolak ansur dan bantu-membantu", "Berbalah", "Berdengki", "Menjauhi"], ans: 0, desc: "Amalan silaturahim memperkukuh keharmonian masyarakat."},
+                {q: "Apakah surah dan ayat yang menegaskan bahawa orang mukmin itu bersaudara (Innamal mukminuna ikhwah)?", opts: ["Surah Al-Hujurat, ayat 10", "Surah Al-Baqarah", "Surah Al-Anfal", "Surah At-Taubah"], ans: 0, desc: "Surah Al-Hujurat ayat 10 menyatakan sesungguhnya orang mukmin itu bersaudara."},
+                {q: "Mengapakah sifat mementingkan diri sendiri dilarang dalam Islam?", opts: ["Kerana ia merosakkan perpaduan dan kasih sayang ummah", "Kerana tiada faedah", "Kerana penat", "Kerana membazir"], ans: 0, desc: "Sifat mementingkan diri memecahbelahkan perpaduan masyarakat."},
+                {q: "Apakah peranan masjid dalam mengekalkan perpaduan?", opts: ["Tempat pertemuan 5 waktu merapatkan jurang perbezaan", "Tempat tidur", "Tempat simpan barang", "Tempat bising"], ans: 0, desc: "Solat berjemaah di masjid menyatukan saf tanpa mengira darjat."
+                },
+                {q: "Apakah iktibar daripada sifat tolong-menolong kaum Ansar?", opts: ["Sifat ikhlas membantu meringankan kesusahan saudara seagama", "Mengharap balasan harta", "Ingin dipuji", "Terpaksa menolong"], ans: 0, desc: "Bantuan ikhlas kerana Allah melahirkan masyarakat harmoni."},
+                {q: "Siapakah yang dimaksudkan dengan 'tujuh golongan mendapat naungan arasy' berkenaan kasih sayang?", opts: ["Dua orang yang berkasih sayang kerana Allah", "Golongan kaya", "Peniaga besar", "Pahlawan perang"], ans: 0, desc: "Dua orang yang berkasih sayang kerana Allah s.w.t adalah golongan terpuji."},
+                {q: "Bagaimanakah cara Islam menyelesaikan masalah perbezaan darjat bangsa?", opts: ["Menyamatarafkan manusia di sisi Allah kecuali dengan taqwa", "Mengutamakan bangsa kaya", "Mengikut keturunan", "Mengikut warna kulit"], ans: 0, desc: "Islam menghapuskan perkauman Jahiliah dan mengangkat darjat melalui taqwa."},
+                {q: "Apakah kesan jika umat Islam mengamalkan semangat ukhuwah Islamiah?", opts: ["Hidup aman damai, bersatu padu dan diberkati Allah", "Sentiasa berperang", "Saling mencuri", "Maju ekonomi sahaja"], ans: 0, desc: "Ukhuwah membawa keberkatan dan kekuatan ummah."},
+                {q: "Apakah yang dimaksudkan dengan 'sifat lidah dan tangan yang selamat'?", opts: ["Tidak menyakiti orang lain melalui perkataan dan perbuatan", "Pandai berkata-kata", "Suka bersalaman", "Suka menulis"], ans: 0, desc: "Muslim sejati ialah yang menjaga lidah dan tangannya daripada menyakiti orang lain."},
+                {q: "Mengapakah golongan Muhajirin sanggup meninggalkan tanah air mereka?", opts: ["Demi mempertahankan akidah dan keimanan kepada Allah", "Ingin merantau", "Tiada pekerjaan di Makkah", "Ikut kawan"], ans: 0, desc: "Hijrah Muhajirin adalah pengorbanan agung demi akidah."},
+                {q: "Apakah peranan pemimpin dalam membina perpaduan ummah?", opts: ["Menyatupadukan rakyat dengan adil dan saksama", "Menindas rakyat", "Mengambil harta", "Berpihak-pihak"], ans: 0, desc: "Pemimpin yang adil menyatukan rakyat pelbagai latar belakang."},
+                {q: "Apakah kesimpulan utama daripada Dasar Persaudaraan di Madinah?", opts: ["Perpaduan berasaskan iman adalah kunci kekuatan tamadun Islam", "Kekuatan terletak pada senjata", "Kekayaan harta penentu kejayaan", "Bangsa penentu kemajuan"], ans: 0, desc: "Iman dan takwa adalah asas kukuh kekuatan pembinaan negara."}
+            ];
+
+            const p7 = [
+                {q: "Bilakah Sahifah Madinah (Perlembagaan Madinah) mula digubal oleh Rasulullah SAW?", opts: ["Pada tahun 627 Masihi (Tahun pertama Hijrah)", "Tahun 610 Masihi", "Tahun ke-10 Hijrah", "Tahun ke-5 Hijrah"], ans: 0, desc: "Sahifah Madinah digubal pada tahun pertama Hijrah (627 Masihi)."},
+                {q: "Berapakah jumlah fasal bertulis yang terkandung dalam Sahifah Madinah?", opts: ["Sebanyak 47 fasal bertulis", "10 fasal", "100 fasal", "30 fasal"], ans: 0, desc: "Mengandungi 47 fasal perlembagaan bertulis pertama dalam sejarah dunia."},
+                {q: "Siapakah ketua negara yang diiktiraf di dalam Sahifah Madinah?", opts: ["Nabi Muhammad SAW", "Abu Bakar", "Umar", "Ketua Yahudi Madinah"], ans: 0, desc: "Nabi Muhammad SAW diiktiraf sebagai ketua negara dan pemimpin tertinggi."},
+                {q: "Apakah tujuan utama penggubalan Sahifah Madinah?", opts: ["Untuk menyatukan seluruh masyarakat majmuk Madinah (Islam dan bukan Islam)", "Mula berperang dengan Rom", "Mengusir semua penduduk Makkah", "Menaikkan cukai perniagaan"], ans: 0, desc: "Bertujuan menyatukan masyarakat majmuk pelbagai kaum menjaga keamanan."},
+                {q: "Adakah penduduk bukan Islam (kaum Yahudi) dijamin mengamal ajaran agama mereka?", opts: ["Ya, kebebasan mengamal ajaran agama dijamin selagi patuh perjanjian", "Tidak sama sekali", "Hanya jika bayar cukai tinggi", "Ditegah berkumpul"], ans: 0, desc: "Kebebasan mengamalkan agama masing-masing dijamin di dalam perlembagaan."},
+                {q: "Apakah kesan positif pembentukan Sahifah Madinah terhadap politik?", opts: ["Mewujudkan kestabilan politik dan keamanan menyeluruh", "Mencetuskan perang saudara", "Melemahkan ekonomi", "Memecahbelahkan kaum"], ans: 0, desc: "Mewujudkan kestabilan politik serta menghentikan permusuhan lama."},
+                {q: "Bagaimanakah hak keselamatan harta benda penduduk Madinah di bawah Sahifah Madinah?", opts: ["Terjamin selagi mereka taat kepada perjanjian perlembagaan", "Dirampas bila-bila masa", "Hanya untuk orang kaya", "Tiada jaminan"], ans: 0, desc: "Keselamatan jiwa dan harta seluruh penduduk dijamin penuh."},
+                {q: "Apakah bukti bahawa Islam adalah agama yang sempurna melalui Sahifah Madinah?", opts: ["Islam mengatur urusan pentadbiran dan panduan hidup bernegara", "Islam hanya suruh solat", "Islam ajar berperang sahaja", "Islam tiada undang-undang"], ans: 0, desc: "Islam membuktikan ia agama yang syumul mengatur urusan hidup bernegara."},
+                {q: "Apakah larangan keras yang terkandung dalam Sahifah Madinah terhadap pengkhianat?", opts: ["Dilarang memberi perlindungan kepada musuh Islam (Quraisy)", "Dilarang makan kurma", "Dilarang berniaga", "Dilarang keluar rumah"], ans: 0, desc: "Dilarang sama sekali memberi perlindungan kepada musuh luar negara."},
+                {q: "Apakah iktibar mematuhi undang-undang dan perlembagaan negara?", opts: ["Menjamin keharmonian dan kesejahteraan hidup bermasyarakat", "Menyusahkan rakyat", "Membuatkan huru-hara", "Tiada faedah"], ans: 0, desc: "Kepatuhan kepada undang-undang melahirkan masyarakat harmoni dan aman."},
+                {q: "Apakah nama lain bagi Sahifah Madinah dalam buku teks?", opts: ["Piagam Madinah", "Perjanjian Hudaibiyah", "Perjanjian Aqabah", "Piagam Makkah"], ans: 0, desc: "Sahifah Madinah juga dikenali sebagai Piagam Madinah."},
+                {q: "Siapakah pihak-pihak utama yang terlibat di dalam piagam Sahifah Madinah?", opts: ["Orang Muhajirin, Ansar dan kaum Yahudi Madinah", "Orang Makkah dan Rom", "Orang Parsi sahaja", "Kabilah Taif"], ans: 0, desc: "Melibatkan golongan Muhajirin, Ansar dan kabilah-kabilah Yahudi Madinah."},
+                {q: "Apakah fasal pertama yang menegaskan kedudukan Nabi Muhammad SAW?", opts: ["Baginda ialah ketua negara bagi semua penduduk Madinah", "Baginda ialah ketua pedagang", "Baginda panglima perang", "Baginda ketua hakim"], ans: 0, desc: "Nabi Muhammad SAW diiktiraf sebagai ketua negara bagi semua penduduk."},
+                {q: "Bagaimanakah penyelesaian jika berlaku sebarang perselisihan faham di Madinah?", opts: ["Hendaklah dirujuk kepada Allah dan Nabi Muhammad SAW", "Berperang sesama sendiri", "Diserah kepada ketua Yahudi", "Diabaikan"], ans: 0, desc: "Segala perselisihan wajib dirujuk kepada hukum Allah dan Rasul."},
+                {q: "Adakah kaum Yahudi diwajibkan turut serta mempertahankan Madinah jika diserang?", opts: ["Ya, wajib bersama-sama mempertahankan Madinah daripada musuh luar", "Tidak wajib", "Boleh berpihak kepada musuh", "Ditegah berperang"], ans: 0, desc: "Semua penduduk wajib bersama mempertahankan Madinah daripada ancaman luar."},
+                {q: "Apakah hak kebebasan ekonomi yang dijamin dalam Sahifah Madinah?", opts: ["Kebebasan menjalankan aktiviti perniagaan yang halal", " monopoli riba", "Menindas peniaga kecil", "Merampas harta"], ans: 0, desc: "Kebebasan berniaga secara adil tanpa penindasan riba dijamin."},
+                {q: "Mengapakah penggubalan Sahifah Madinah dianggap moden pada zamannya?", opts: ["Kerana ia perlembagaan bertulis pertama menjamin hak asasi masyarakat majmuk", "Kerana ditulis atas kertas emas", "Kerana diiktiraf PBB", "Kerana ada parlimen"], ans: 0, desc: "Ia adalah dokumen bertulis pertama di dunia menjamin hak rakyat majmuk."},
+                {q: "Apakah kesan hubungan baik antara kaum Aus dan Khazraj selepas piagam?", opts: ["Permusuhan lama terpadam dan menjadi saudara seiman", "Terus berperang", "Saling mendengki", "Berpindah ke Makkah"], ans: 0, desc: "Permusuhan keturunan Aus dan Khazraj lebur diganti perpaduan kukuh."},
+                {q: "Apakah tanggungjawab bersama penduduk Madinah terhadap keselamatan kota?", opts: ["Mestilah bersama-sama melindungi dan mempertahankan kota Madinah", "Menyerah kepada musuh", "Menjual kota", "Lari menyelamatkan diri"], ans: 0, desc: "Semua penduduk wajib mempertahankan keselamatan kota dari musuh."},
+                {q: "Apakah kedudukan undang-undang dalam Sahifah Madinah?", opts: ["Undang-undang terpakai kepada semua pihak tanpa pengecualian", "Hanya untuk orang Islam", "Hanya untuk orang Yahudi", "Ikut suka pemimpin"], ans: 0, desc: "Kedaulatan undang-undang mengikat seluruh rakyat tanpa diskriminasi."},
+                {q: "Siapakah yang dilarang diberi perlindungan menurut fasal Sahifah Madinah?", opts: ["Golongan musyrikin Quraisy dan penjenayah pengkhianat", "Tetamu luar", "Saudara mara", "Orang miskin"], ans: 0, desc: "Dilarang memberi perlindungan kepada musuh musyrikin Quraisy Makkah."},
+                {q: "Apakah kesan langsung Sahifah Madinah terhadap hak kebebasan beragama?", opts: ["Setiap kaum bebas mengamalkan agama masing-masing secara aman", "Semua wajib masuk Islam", "Agama dilarang sama sekali", "Hanya agama Yahudi diiktiraf"], ans: 0, desc: "Kebebasan beragama dijamin bagi penganut Islam dan Yahudi."},
+                {q: "Apakah pengajaran daripada sifat bertolak ansur dalam Sahifah Madinah?", opts: ["Bertolak ansur penting untuk mengekalkan keharmonian hidup berbilang kaum", "Tidak perlu bertolak ansur", "Mementingkan kaum sendiri", "Menindas yang lemah"], ans: 0, desc: "Tolak ansur melahirkan masyarakat majmuk yang aman damai."},
+                {q: "Mengapakah piagam bertulis sangat penting dalam pentadbiran sebuah negara?", opts: ["Untuk menjamin hak, keadilan dan panduan jelas rakyat", "Untuk hiasan muzium", "Untuk menyusahkan rakyat", "Tiada fungsi"], ans: 0, desc: "Perlembagaan bertulis menjamin keadilan dan hak rakyat terbela."},
+                {q: "Apakah bentuk keadilan sosial yang ditegakkan melalui Piagam Madinah?", opts: ["Keadilan kepada semua penduduk tanpa mengira bangsa dan agama", "Keadilan kepada orang kaya sahaja", "Keadilan kepada kaum tertentu", "Tiada keadilan"], ans: 0, desc: "Keadilan sosial menyeluruh untuk semua rakyat Madinah."},
+                {q: "Apakah iktibar mematuhi perjanjian dan piagam yang telah dimeterai?", opts: ["Menepati janji adalah sifat mulia dan menjamin kepercayaan", "Boleh mungkir janji", "Janji hanya mainan", "Tidak wajib tunaikan"], ans: 0, desc: "Menepati janji dan piagam adalah asas integriti negara."},
+                {q: "Bagaimanakah piagam Madinah membuktikan Islam agama rahmat sekalian alam?", opts: ["Kerana ia melindungi hak golongan minoriti dan bukan Islam dengan adil", "Kerana ia memaksa penganut lain", "Kerana ia mengumpul harta", "Kerana ia menyekat kebebasan"], ans: 0, desc: "Islam membela hak semua pihak termasuk bukan Islam dengan adil."},
+                {q: "Apakah kesan keamanan Madinah terhadap perkembangan dakwah Islam?", opts: ["Dakwah berkembang luas dan Madinah menjadi pusat tamadun unggul", "Dakwah merosot", "Islam terhad di Madinah", "Berlaku huru-hara"], ans: 0, desc: "Kestabilan politik membolehkan Islam berkembang pesat ke seluruh dunia."},
+                {q: "Apakah kesimpulan utama daripada kejayaan penggubalan Sahifah Madinah?", opts: ["Kepimpinan unggul Rasulullah SAW mampu menyatukan masyarakat pelbagai kaum", "Kekuatan tentera semata-mata", "Kekayaan harta", "Bantuan kuasa asing"], ans: 0, desc: "Kepimpinan berwawasan Baginda berjaya mengurus masyarakat majmuk."},
+                {q: "Apakah nilai murni yang harus diteladani daripada piagam Madinah dalam kehidupan moden?", opts: ["Semangat perpaduan, patuh undang-undang dan hormat-menghormati", "Perbalahan kaum", "Sikap mementingkan diri", "Mengingkari perlembagaan"], ans: 0, desc: "Nilai perpaduan dan kepatuhan undang-undang kunci kejayaan negara moden."}
+            ];
+
+            if (lessonId === "1") pool = p1;
+            else if (lessonId === "2") pool = p2;
+            else if (lessonId === "3") pool = p3;
+            else if (lessonId === "4") pool = p4;
+            else if (lessonId === "5") pool = p5;
+            else if (lessonId === "6") pool = p6;
+            else if (lessonId === "7") pool = p7;
+            else {
+                let combined = [...p1, ...p2, ...p3, ...p4, ...p5, ...p6, ...p7];
+                pool = shuffleArray(combined).slice(0, 30);
+            }
+
+            return pool;
+        }
+
+        function shuffleArray(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        let quizQuestions = [];
+        let currentQuizIndex = 0;
+        let userAnswers = {};
+        let quizScore = 0;
+        let currentSelectedTopic = 'all';
+
+        function startQuiz(topicVal) {
+            currentSelectedTopic = topicVal;
+            quizQuestions = generateQuizQuestions(topicVal);
+            currentQuizIndex = 0;
+            userAnswers = {};
+            quizScore = 0;
+
+            document.getElementById('quiz-menu-container').classList.add('hidden');
+            document.getElementById('quiz-result-container').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+
+            let labelText = "Semua Tajuk Campuran";
+            if (topicVal === "1") labelText = "Pelajaran 1: Pelantikan Nabi SAW";
+            else if (topicVal === "2") labelText = "Pelajaran 2: Hijrah Habsyah & Taif";
+            else if (topicVal === "3") labelText = "Pelajaran 3: Isra' dan Mi'raj";
+            else if (topicVal === "4") labelText = "Pelajaran 4: Peristiwa Hijrah Yathrib";
+            else if (topicVal === "5") labelText = "Pelajaran 5: Asas Negara 1 (Masjid)";
+            else if (topicVal === "6") labelText = "Pelajaran 6: Asas Negara 2 (Persaudaraan)";
+            else if (topicVal === "7") labelText = "Pelajaran 7: Asas Negara 3 (Sahifah)";
+
+            document.getElementById('quiz-topic-title-label').innerText = labelText;
+
+            renderQuizQuestion();
+        }
+
+        function backToQuizMenu() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result-container').classList.add('hidden');
+            document.getElementById('quiz-menu-container').classList.remove('hidden');
+        }
+
+        function renderQuizQuestion() {
+            const q = quizQuestions[currentQuizIndex];
+            document.getElementById('quiz-q-num').innerText = `Soalan ${currentQuizIndex + 1} daripada ${quizQuestions.length}`;
+            document.getElementById('quiz-question-text').innerText = q.q;
+            document.getElementById('quiz-score-display').innerText = `${quizScore} Mata`;
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            const explanationBox = document.getElementById('quiz-explanation-box');
+            explanationBox.classList.add('hidden');
+
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                const isSelected = userAnswers[currentQuizIndex] === idx;
+                const isAnswered = userAnswers[currentQuizIndex] !== undefined;
+
+                let btnClass = "w-full text-right p-3.5 rounded-xl border text-sm font-semibold transition-all flex items-center justify-between ";
+                
+                if (isAnswered) {
+                    if (idx === q.ans) {
+                        btnClass += "bg-green-100 border-green-500 text-green-900";
+                    } else if (isSelected) {
+                        btnClass += "bg-red-100 border-red-500 text-red-900";
+                    } else {
+                        btnClass += "bg-white border-gray-200 text-gray-600 opacity-60";
+                    }
+                } else {
+                    btnClass += "bg-white border-gray-200 text-gray-800 hover:bg-emerald-50 hover:border-emerald-300 shadow-sm";
+                }
+
+                btn.className = btnClass;
+                btn.innerHTML = `
+                    <div class="flex items-center space-x-3 space-x-reverse">
+                        <span class="w-7 h-7 rounded-lg bg-gray-100 text-gray-700 flex items-center justify-center text-xs font-bold shrink-0">${String.fromCharCode(65 + idx)}</span>
+                        <span>${opt}</span>
+                    </div>
+                `;
+
+                if (!isAnswered) {
+                    btn.onclick = () => selectQuizAnswer(idx);
+                } else {
+                    btn.disabled = true;
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            if (userAnswers[currentQuizIndex] !== undefined) {
+                showExplanation(q);
+            }
+
+            document.getElementById('btn-prev-q').disabled = currentQuizIndex === 0;
+            const nextBtnText = document.getElementById('btn-next-q').querySelector('span');
+            if (currentQuizIndex === quizQuestions.length - 1) {
+                nextBtnText.innerText = "Hantar & Semak Keputusan";
+            } else {
+                nextBtnText.innerText = "Seterusnya";
+            }
+        }
+
+        function selectQuizAnswer(selectedIdx) {
+            userAnswers[currentQuizIndex] = selectedIdx;
+            const q = quizQuestions[currentQuizIndex];
+
+            if (selectedIdx === q.ans) {
+                quizScore += 10;
+            }
+
+            renderQuizQuestion();
+        }
+
+        function showExplanation(q) {
+            const expBox = document.getElementById('quiz-explanation-box');
+            const expText = document.getElementById('quiz-explanation-text');
+            expText.innerText = q.desc;
+            expBox.classList.remove('hidden');
+        }
+
+        function nextQuizQuestion() {
+            if (currentQuizIndex < quizQuestions.length - 1) {
+                currentQuizIndex++;
+                renderQuizQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function prevQuizQuestion() {
+            if (currentQuizIndex > 0) {
+                currentQuizIndex--;
+                renderQuizQuestion();
+            }
+        }
+
+        function finishQuiz() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result-container').classList.remove('hidden');
+
+            let correctCount = 0;
+            let wrongCount = 0;
+
+            quizQuestions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.ans) {
+                    correctCount++;
+                } else {
+                    wrongCount++;
+                }
+            });
+
+            const totalQ = quizQuestions.length;
+            const percent = Math.round((correctCount / totalQ) * 100);
+
+            document.getElementById('res-score').innerText = `${quizScore} / ${totalQ * 10}`;
+            document.getElementById('res-percent').innerText = `${percent}%`;
+            document.getElementById('res-correct').innerText = correctCount;
+            document.getElementById('res-wrong').innerText = wrongCount;
+        }
+
+        window.onload = function() {
+            renderNota();
+            loadFlashcard();
+        };
+    </script>
+</body>
+</html>
